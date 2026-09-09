@@ -1,0 +1,87 @@
+[
+  {
+    "id": "CORR-01",
+    "code": "NDLS-HWH",
+    "name": "Northern-Eastern Trunk Corridor (New Delhi - Howrah Main Line)",
+    "total_distance_km": 1447,
+    "electrified": true,
+    "tracks": 2,
+    "max_permissible_speed_kmh": 130,
+    "stops": [
+      { "station_code": "NDLS", "km": 0, "order": 1 },
+      { "station_code": "GZB", "km": 25, "order": 2 },
+      { "station_code": "ALJN", "km": 131, "order": 3 },
+      { "station_code": "TDL", "km": 209, "order": 4 },
+      { "station_code": "CNB", "km": 440, "order": 5 },
+      { "station_code": "PRYJ", "km": 635, "order": 6 },
+      { "station_code": "DDU", "km": 788, "order": 7 },
+      { "station_code": "BXR", "km": 882, "order": 8 },
+      { "station_code": "PNBE", "km": 1000, "order": 9 },
+      { "station_code": "ASN", "km": 1247, "order": 10 },
+      { "station_code": "HWH", "km": 1447, "order": 11 }
+    ],
+    "critical_bottlenecks": [
+      { "location": "CNB Yard", "km": 438, "reason": "Diamond crossing and intensive terminal shunting" },
+      { "location": "GZB-ALJN Section", "km": 75, "reason": "High commuter & freight mix (135% line capacity utilization)" },
+      { "location": "DDU East Cabin", "km": 790, "reason": "Coal freight convergence zone" }
+    ]
+  },
+  {
+    "id": "CORR-02",
+    "code": "NDLS-MMCT",
+    "name": "Western Trunk Corridor (New Delhi - Mumbai Central)",
+    "total_distance_km": 1384,
+    "electrified": true,
+    "tracks": 2,
+    "max_permissible_speed_kmh": 130,
+    "stops": [
+      { "station_code": "NDLS", "km": 0, "order": 1 },
+      { "station_code": "MTJ", "km": 141, "order": 2 },
+      { "station_code": "KOTA", "km": 465, "order": 3 },
+      { "station_code": "RTM", "km": 732, "order": 4 },
+      { "station_code": "BRC", "km": 992, "order": 5 },
+      { "station_code": "ST", "km": 1122, "order": 6 },
+      { "station_code": "BVI", "km": 1354, "order": 7 },
+      { "station_code": "MMCT", "km": 1384, "order": 8 }
+    ],
+    "critical_bottlenecks": [
+      { "location": "MTJ Junction", "km": 140, "reason": "North-Central route bifurcations" },
+      { "location": "BVI-MMCT Suburban Section", "km": 1365, "reason": "Dense local suburban peak headway" }
+    ]
+  },
+  {
+    "id": "CORR-03",
+    "code": "MAS-SBC",
+    "name": "Southern Inter-City Trunk (Chennai Central - Bengaluru)",
+    "total_distance_km": 358,
+    "electrified": true,
+    "tracks": 2,
+    "max_permissible_speed_kmh": 110,
+    "stops": [
+      { "station_code": "MAS", "km": 0, "order": 1 },
+      { "station_code": "KPD", "km": 130, "order": 2 },
+      { "station_code": "SBC", "km": 358, "order": 3 }
+    ],
+    "critical_bottlenecks": [
+      { "location": "Arakkonam-Katpadi gradient", "km": 115, "reason": "Permanent curve speed restriction" }
+    ]
+  },
+  {
+    "id": "CORR-04",
+    "code": "MMR-KPG",
+    "name": "Manmad Jn - Kopargaon Single-Track Corridor",
+    "total_distance_km": 42,
+    "electrified": true,
+    "tracks": 1,
+    "track_type": "Single Track",
+    "max_permissible_speed_kmh": 110,
+    "stops": [
+      { "station_code": "MMR", "km": 0, "order": 1 },
+      { "station_code": "KPG", "km": 42, "order": 2 }
+    ],
+    "critical_bottlenecks": [
+      { "location": "MMR South Outer Switch", "km": 2, "reason": "Transition from junction yard to single track section" },
+      { "location": "Godavari River Single-Line Section", "km": 24, "reason": "No loop siding; strict absolute block working" }
+    ]
+  }
+]

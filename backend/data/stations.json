@@ -1,0 +1,232 @@
+[
+  {
+    "code": "NDLS",
+    "name": "New Delhi",
+    "lat": 28.6429,
+    "lng": 77.2195,
+    "zone": "NR",
+    "division": "Delhi",
+    "platforms": 16,
+    "category": "NSG-1"
+  },
+  {
+    "code": "GZB",
+    "name": "Ghaziabad Junction",
+    "lat": 28.6678,
+    "lng": 77.4349,
+    "zone": "NR",
+    "division": "Delhi",
+    "platforms": 6,
+    "category": "NSG-3"
+  },
+  {
+    "code": "ALJN",
+    "name": "Aligarh Junction",
+    "lat": 27.8974,
+    "lng": 78.0880,
+    "zone": "NCR",
+    "division": "Prayagraj",
+    "platforms": 7,
+    "category": "NSG-3"
+  },
+  {
+    "code": "TDL",
+    "name": "Tundla Junction",
+    "lat": 27.2064,
+    "lng": 78.2435,
+    "zone": "NCR",
+    "division": "Prayagraj",
+    "platforms": 5,
+    "category": "NSG-4"
+  },
+  {
+    "code": "CNB",
+    "name": "Kanpur Central",
+    "lat": 26.4547,
+    "lng": 80.3507,
+    "zone": "NCR",
+    "division": "Prayagraj",
+    "platforms": 10,
+    "category": "NSG-1"
+  },
+  {
+    "code": "PRYJ",
+    "name": "Prayagraj Junction",
+    "lat": 25.4526,
+    "lng": 81.8349,
+    "zone": "NCR",
+    "division": "Prayagraj",
+    "platforms": 10,
+    "category": "NSG-2"
+  },
+  {
+    "code": "DDU",
+    "name": "Pt. Deen Dayal Upadhyaya Junction",
+    "lat": 25.2818,
+    "lng": 83.1182,
+    "zone": "ECR",
+    "division": "Pt. DDU",
+    "platforms": 8,
+    "category": "NSG-2"
+  },
+  {
+    "code": "BXR",
+    "name": "Buxar",
+    "lat": 25.5647,
+    "lng": 83.9777,
+    "zone": "ECR",
+    "division": "Danapur",
+    "platforms": 3,
+    "category": "NSG-4"
+  },
+  {
+    "code": "PNBE",
+    "name": "Patna Junction",
+    "lat": 25.6022,
+    "lng": 85.1376,
+    "zone": "ECR",
+    "division": "Danapur",
+    "platforms": 10,
+    "category": "NSG-1"
+  },
+  {
+    "code": "ASN",
+    "name": "Asansol Junction",
+    "lat": 23.6871,
+    "lng": 86.9746,
+    "zone": "ER",
+    "division": "Asansol",
+    "platforms": 7,
+    "category": "NSG-2"
+  },
+  {
+    "code": "HWH",
+    "name": "Howrah Junction",
+    "lat": 22.5839,
+    "lng": 88.3426,
+    "zone": "ER",
+    "division": "Howrah",
+    "platforms": 23,
+    "category": "NSG-1"
+  },
+  {
+    "code": "MTJ",
+    "name": "Mathura Junction",
+    "lat": 27.4924,
+    "lng": 77.6737,
+    "zone": "NCR",
+    "division": "Agra",
+    "platforms": 10,
+    "category": "NSG-2"
+  },
+  {
+    "code": "KOTA",
+    "name": "Kota Junction",
+    "lat": 25.2138,
+    "lng": 75.8648,
+    "zone": "WCR",
+    "division": "Kota",
+    "platforms": 6,
+    "category": "NSG-2"
+  },
+  {
+    "code": "RTM",
+    "name": "Ratlam Junction",
+    "lat": 23.3441,
+    "lng": 75.0352,
+    "zone": "WR",
+    "division": "Ratlam",
+    "platforms": 7,
+    "category": "NSG-2"
+  },
+  {
+    "code": "BRC",
+    "name": "Vadodara Junction",
+    "lat": 22.3107,
+    "lng": 73.1812,
+    "zone": "WR",
+    "division": "Vadodara",
+    "platforms": 7,
+    "category": "NSG-1"
+  },
+  {
+    "code": "ST",
+    "name": "Surat",
+    "lat": 21.2049,
+    "lng": 72.8406,
+    "zone": "WR",
+    "division": "Mumbai WR",
+    "platforms": 4,
+    "category": "NSG-1"
+  },
+  {
+    "code": "BVI",
+    "name": "Borivali",
+    "lat": 19.2294,
+    "lng": 72.8574,
+    "zone": "WR",
+    "division": "Mumbai WR",
+    "platforms": 10,
+    "category": "NSG-1"
+  },
+  {
+    "code": "MMCT",
+    "name": "Mumbai Central",
+    "lat": 18.9696,
+    "lng": 72.8193,
+    "zone": "WR",
+    "division": "Mumbai WR",
+    "platforms": 5,
+    "category": "NSG-1"
+  },
+  {
+    "code": "MAS",
+    "name": "MGR Chennai Central",
+    "lat": 13.0827,
+    "lng": 80.2757,
+    "zone": "SR",
+    "division": "Chennai",
+    "platforms": 17,
+    "category": "NSG-1"
+  },
+  {
+    "code": "KPD",
+    "name": "Katpadi Junction",
+    "lat": 12.9692,
+    "lng": 79.1378,
+    "zone": "SR",
+    "division": "Chennai",
+    "platforms": 5,
+    "category": "NSG-2"
+  },
+  {
+    "code": "SBC",
+    "name": "KSR Bengaluru City Junction",
+    "lat": 12.9781,
+    "lng": 77.5694,
+    "zone": "SWR",
+    "division": "Bengaluru",
+    "platforms": 10,
+    "category": "NSG-1"
+  },
+  {
+    "code": "MMR",
+    "name": "Manmad Junction",
+    "lat": 20.2503,
+    "lng": 74.4378,
+    "zone": "CR",
+    "division": "Bhusawal",
+    "platforms": 6,
+    "category": "NSG-3"
+  },
+  {
+    "code": "KPG",
+    "name": "Kopargaon",
+    "lat": 19.8914,
+    "lng": 74.4786,
+    "zone": "CR",
+    "division": "Solapur",
+    "platforms": 2,
+    "category": "NSG-4"
+  }
+]

@@ -1,0 +1,832 @@
+[
+  {
+    "train_number": "12301",
+    "name": "Howrah Rajdhani Express",
+    "type": "Rajdhani Express",
+    "priority": 1,
+    "corridor_code": "NDLS-HWH",
+    "origin": "HWH",
+    "destination": "NDLS",
+    "locomotive": "WAP-7 (Ghaziabad Shed #30245)",
+    "rake_type": "LHB AC 22 Coaches",
+    "max_speed_kmh": 130,
+    "avg_speed_kmh": 86.5,
+    "schedule": [
+      {
+        "station_code": "HWH",
+        "day": 1,
+        "scheduled_arr": "16:50",
+        "scheduled_dep": "16:55",
+        "distance_km": 0,
+        "platform": "9"
+      },
+      {
+        "station_code": "ASN",
+        "day": 1,
+        "scheduled_arr": "18:55",
+        "scheduled_dep": "18:57",
+        "distance_km": 200,
+        "platform": "4"
+      },
+      {
+        "station_code": "DDU",
+        "day": 2,
+        "scheduled_arr": "00:45",
+        "scheduled_dep": "00:55",
+        "distance_km": 659,
+        "platform": "2"
+      },
+      {
+        "station_code": "PRYJ",
+        "day": 2,
+        "scheduled_arr": "02:43",
+        "scheduled_dep": "02:45",
+        "distance_km": 812,
+        "platform": "1"
+      },
+      {
+        "station_code": "CNB",
+        "day": 2,
+        "scheduled_arr": "04:50",
+        "scheduled_dep": "04:55",
+        "distance_km": 1007,
+        "platform": "1"
+      },
+      {
+        "station_code": "NDLS",
+        "day": 2,
+        "scheduled_arr": "10:05",
+        "scheduled_dep": "10:05",
+        "distance_km": 1447,
+        "platform": "1"
+      }
+    ],
+    "status": {
+      "current_status": "Running",
+      "current_km": 890,
+      "current_speed_kmh": 118,
+      "last_reported_station": "PRYJ",
+      "next_station": "CNB",
+      "simulated_delay_mins": 14,
+      "signal_aspect": "Green",
+      "block_section": "PRYJ-FTP Block 4",
+      "pnp_score": 94.2
+    }
+  },
+  {
+    "train_number": "12302",
+    "name": "New Delhi - Howrah Rajdhani",
+    "type": "Rajdhani Express",
+    "priority": 1,
+    "corridor_code": "NDLS-HWH",
+    "origin": "NDLS",
+    "destination": "HWH",
+    "locomotive": "WAP-7 (Howrah Shed #30310)",
+    "rake_type": "LHB AC 22 Coaches",
+    "max_speed_kmh": 130,
+    "avg_speed_kmh": 87.1,
+    "schedule": [
+      {
+        "station_code": "NDLS",
+        "day": 1,
+        "scheduled_arr": "16:50",
+        "scheduled_dep": "16:55",
+        "distance_km": 0,
+        "platform": "2"
+      },
+      {
+        "station_code": "CNB",
+        "day": 1,
+        "scheduled_arr": "21:32",
+        "scheduled_dep": "21:37",
+        "distance_km": 440,
+        "platform": "1"
+      },
+      {
+        "station_code": "PRYJ",
+        "day": 1,
+        "scheduled_arr": "23:43",
+        "scheduled_dep": "23:45",
+        "distance_km": 635,
+        "platform": "4"
+      },
+      {
+        "station_code": "DDU",
+        "day": 2,
+        "scheduled_arr": "01:37",
+        "scheduled_dep": "01:47",
+        "distance_km": 788,
+        "platform": "1"
+      },
+      {
+        "station_code": "ASN",
+        "day": 2,
+        "scheduled_arr": "06:55",
+        "scheduled_dep": "06:57",
+        "distance_km": 1247,
+        "platform": "5"
+      },
+      {
+        "station_code": "HWH",
+        "day": 2,
+        "scheduled_arr": "09:55",
+        "scheduled_dep": "09:55",
+        "distance_km": 1447,
+        "platform": "8"
+      }
+    ],
+    "status": {
+      "current_status": "Running",
+      "current_km": 380,
+      "current_speed_kmh": 124,
+      "last_reported_station": "TDL",
+      "next_station": "CNB",
+      "simulated_delay_mins": 6,
+      "signal_aspect": "Green",
+      "block_section": "TDL-CNB Block 9",
+      "pnp_score": 97.5
+    }
+  },
+  {
+    "train_number": "22436",
+    "name": "Vande Bharat Express",
+    "type": "Vande Bharat",
+    "priority": 1,
+    "corridor_code": "NDLS-HWH",
+    "origin": "NDLS",
+    "destination": "DDU",
+    "locomotive": "Distributed Traction EMU (Train 18)",
+    "rake_type": "Train 18 16 Coaches",
+    "max_speed_kmh": 160,
+    "avg_speed_kmh": 95.0,
+    "schedule": [
+      {
+        "station_code": "NDLS",
+        "day": 1,
+        "scheduled_arr": "05:55",
+        "scheduled_dep": "06:00",
+        "distance_km": 0,
+        "platform": "16"
+      },
+      {
+        "station_code": "CNB",
+        "day": 1,
+        "scheduled_arr": "10:08",
+        "scheduled_dep": "10:10",
+        "distance_km": 440,
+        "platform": "1"
+      },
+      {
+        "station_code": "PRYJ",
+        "day": 1,
+        "scheduled_arr": "12:08",
+        "scheduled_dep": "12:10",
+        "distance_km": 635,
+        "platform": "6"
+      },
+      {
+        "station_code": "DDU",
+        "day": 1,
+        "scheduled_arr": "14:00",
+        "scheduled_dep": "14:00",
+        "distance_km": 788,
+        "platform": "3"
+      }
+    ],
+    "status": {
+      "current_status": "Running",
+      "current_km": 465,
+      "current_speed_kmh": 128,
+      "last_reported_station": "CNB",
+      "next_station": "PRYJ",
+      "simulated_delay_mins": 2,
+      "signal_aspect": "Green",
+      "block_section": "CNB-PRYJ Block 2",
+      "pnp_score": 99.1
+    }
+  },
+  {
+    "train_number": "12951",
+    "name": "Mumbai Tejas Rajdhani Express",
+    "type": "Rajdhani Express",
+    "priority": 1,
+    "corridor_code": "NDLS-MMCT",
+    "origin": "MMCT",
+    "destination": "NDLS",
+    "locomotive": "WAP-7 (Vadodara Shed #30489)",
+    "rake_type": "Tejas Smart Sleeper 20 Coaches",
+    "max_speed_kmh": 130,
+    "avg_speed_kmh": 89.2,
+    "schedule": [
+      {
+        "station_code": "MMCT",
+        "day": 1,
+        "scheduled_arr": "16:55",
+        "scheduled_dep": "17:00",
+        "distance_km": 0,
+        "platform": "1"
+      },
+      {
+        "station_code": "BVI",
+        "day": 1,
+        "scheduled_arr": "17:22",
+        "scheduled_dep": "17:24",
+        "distance_km": 30,
+        "platform": "6"
+      },
+      {
+        "station_code": "ST",
+        "day": 1,
+        "scheduled_arr": "19:43",
+        "scheduled_dep": "19:48",
+        "distance_km": 263,
+        "platform": "1"
+      },
+      {
+        "station_code": "BRC",
+        "day": 1,
+        "scheduled_arr": "21:06",
+        "scheduled_dep": "21:16",
+        "distance_km": 392,
+        "platform": "2"
+      },
+      {
+        "station_code": "RTM",
+        "day": 2,
+        "scheduled_arr": "00:25",
+        "scheduled_dep": "00:28",
+        "distance_km": 653,
+        "platform": "4"
+      },
+      {
+        "station_code": "KOTA",
+        "day": 2,
+        "scheduled_arr": "03:15",
+        "scheduled_dep": "03:20",
+        "distance_km": 920,
+        "platform": "1"
+      },
+      {
+        "station_code": "NDLS",
+        "day": 2,
+        "scheduled_arr": "08:32",
+        "scheduled_dep": "08:32",
+        "distance_km": 1384,
+        "platform": "3"
+      }
+    ],
+    "status": {
+      "current_status": "Running",
+      "current_km": 1050,
+      "current_speed_kmh": 110,
+      "last_reported_station": "KOTA",
+      "next_station": "MTJ",
+      "simulated_delay_mins": 9,
+      "signal_aspect": "Double Yellow",
+      "block_section": "KOTA-MTJ Block 12",
+      "pnp_score": 96.0
+    }
+  },
+  {
+    "train_number": "12004",
+    "name": "Lucknow Shatabdi Express",
+    "type": "Shatabdi Express",
+    "priority": 2,
+    "corridor_code": "NDLS-HWH",
+    "origin": "NDLS",
+    "destination": "CNB",
+    "locomotive": "WAP-5 (Ghaziabad Shed #30022)",
+    "rake_type": "LHB Chair Car 14 Coaches",
+    "max_speed_kmh": 130,
+    "avg_speed_kmh": 82.0,
+    "schedule": [
+      {
+        "station_code": "NDLS",
+        "day": 1,
+        "scheduled_arr": "06:05",
+        "scheduled_dep": "06:10",
+        "distance_km": 0,
+        "platform": "9"
+      },
+      {
+        "station_code": "GZB",
+        "day": 1,
+        "scheduled_arr": "06:43",
+        "scheduled_dep": "06:45",
+        "distance_km": 25,
+        "platform": "2"
+      },
+      {
+        "station_code": "ALJN",
+        "day": 1,
+        "scheduled_arr": "07:48",
+        "scheduled_dep": "07:50",
+        "distance_km": 131,
+        "platform": "3"
+      },
+      {
+        "station_code": "TDL",
+        "day": 1,
+        "scheduled_arr": "08:45",
+        "scheduled_dep": "08:47",
+        "distance_km": 209,
+        "platform": "3"
+      },
+      {
+        "station_code": "CNB",
+        "day": 1,
+        "scheduled_arr": "11:20",
+        "scheduled_dep": "11:25",
+        "distance_km": 440,
+        "platform": "5"
+      }
+    ],
+    "status": {
+      "current_status": "Running",
+      "current_km": 195,
+      "current_speed_kmh": 105,
+      "last_reported_station": "ALJN",
+      "next_station": "TDL",
+      "simulated_delay_mins": 18,
+      "signal_aspect": "Yellow",
+      "block_section": "ALJN-TDL Block 6",
+      "pnp_score": 88.4
+    }
+  },
+  {
+    "train_number": "12802",
+    "name": "Purushottam Express",
+    "type": "Superfast Express",
+    "priority": 3,
+    "corridor_code": "NDLS-HWH",
+    "origin": "NDLS",
+    "destination": "DDU",
+    "locomotive": "WAP-7 (Tughlakabad #30412)",
+    "rake_type": "LHB Sleeper/AC 22 Coaches",
+    "max_speed_kmh": 110,
+    "avg_speed_kmh": 68.4,
+    "schedule": [
+      {
+        "station_code": "NDLS",
+        "day": 1,
+        "scheduled_arr": "22:35",
+        "scheduled_dep": "22:40",
+        "distance_km": 0,
+        "platform": "8"
+      },
+      {
+        "station_code": "CNB",
+        "day": 2,
+        "scheduled_arr": "03:55",
+        "scheduled_dep": "04:00",
+        "distance_km": 440,
+        "platform": "4"
+      },
+      {
+        "station_code": "PRYJ",
+        "day": 2,
+        "scheduled_arr": "06:55",
+        "scheduled_dep": "07:00",
+        "distance_km": 635,
+        "platform": "2"
+      },
+      {
+        "station_code": "DDU",
+        "day": 2,
+        "scheduled_arr": "09:50",
+        "scheduled_dep": "10:00",
+        "distance_km": 788,
+        "platform": "2"
+      }
+    ],
+    "status": {
+      "current_status": "Delayed",
+      "current_km": 520,
+      "current_speed_kmh": 82,
+      "last_reported_station": "CNB",
+      "next_station": "PRYJ",
+      "simulated_delay_mins": 46,
+      "signal_aspect": "Double Yellow",
+      "block_section": "CNB-PRYJ Block 7",
+      "pnp_score": 76.8
+    }
+  },
+  {
+    "train_number": "BOXN-50102",
+    "name": "Thermal Coal Freight Rake",
+    "type": "Freight",
+    "priority": 4,
+    "corridor_code": "NDLS-HWH",
+    "origin": "DDU",
+    "destination": "GZB",
+    "locomotive": "WAG-9 twin-unit (Asansol Shed #31502)",
+    "rake_type": "58 BOXN Heavy Haul (5200 MT)",
+    "max_speed_kmh": 75,
+    "avg_speed_kmh": 42.0,
+    "schedule": [
+      {
+        "station_code": "DDU",
+        "day": 1,
+        "scheduled_arr": "02:00",
+        "scheduled_dep": "02:30",
+        "distance_km": 0,
+        "platform": "Yard-4"
+      },
+      {
+        "station_code": "PRYJ",
+        "day": 1,
+        "scheduled_arr": "06:30",
+        "scheduled_dep": "07:15",
+        "distance_km": 153,
+        "platform": "Goods-1"
+      },
+      {
+        "station_code": "CNB",
+        "day": 1,
+        "scheduled_arr": "12:00",
+        "scheduled_dep": "13:30",
+        "distance_km": 348,
+        "platform": "Loop-2"
+      },
+      {
+        "station_code": "TDL",
+        "day": 1,
+        "scheduled_arr": "18:45",
+        "scheduled_dep": "19:20",
+        "distance_km": 579,
+        "platform": "Goods-3"
+      },
+      {
+        "station_code": "GZB",
+        "day": 2,
+        "scheduled_arr": "01:15",
+        "scheduled_dep": "01:15",
+        "distance_km": 763,
+        "platform": "Yard-1"
+      }
+    ],
+    "status": {
+      "current_status": "Held at Loop",
+      "current_km": 441,
+      "current_speed_kmh": 0,
+      "last_reported_station": "CNB",
+      "next_station": "TDL",
+      "simulated_delay_mins": 82,
+      "signal_aspect": "Red",
+      "block_section": "CNB West Yard Loop line 3",
+      "pnp_score": 55.0
+    }
+  },
+  {
+    "train_number": "20608",
+    "name": "Mysuru-Chennai Vande Bharat",
+    "type": "Vande Bharat",
+    "priority": 1,
+    "corridor_code": "MAS-SBC",
+    "origin": "SBC",
+    "destination": "MAS",
+    "locomotive": "Distributed Traction EMU (Train 18)",
+    "rake_type": "Train 18 16 Coaches",
+    "max_speed_kmh": 130,
+    "avg_speed_kmh": 81.3,
+    "schedule": [
+      {
+        "station_code": "SBC",
+        "day": 1,
+        "scheduled_arr": "14:45",
+        "scheduled_dep": "14:50",
+        "distance_km": 0,
+        "platform": "7"
+      },
+      {
+        "station_code": "KPD",
+        "day": 1,
+        "scheduled_arr": "17:33",
+        "scheduled_dep": "17:35",
+        "distance_km": 228,
+        "platform": "2"
+      },
+      {
+        "station_code": "MAS",
+        "day": 1,
+        "scheduled_arr": "19:20",
+        "scheduled_dep": "19:20",
+        "distance_km": 358,
+        "platform": "2"
+      }
+    ],
+    "status": {
+      "current_status": "Running",
+      "current_km": 210,
+      "current_speed_kmh": 115,
+      "last_reported_station": "SBC",
+      "next_station": "KPD",
+      "simulated_delay_mins": 4,
+      "signal_aspect": "Green",
+      "block_section": "JTJ-KPD Block 3",
+      "pnp_score": 98.2
+    }
+  },
+  {
+    "train_number": "12131",
+    "name": "Shirdi Superfast Express",
+    "type": "Superfast Express",
+    "priority": 2,
+    "corridor_code": "MMR-KPG",
+    "origin": "MMR",
+    "destination": "KPG",
+    "locomotive": "WAP-7 (Kalyan Shed #37105)",
+    "rake_type": "LHB AC/Sleeper 20 Coaches",
+    "max_speed_kmh": 110,
+    "avg_speed_kmh": 68.5,
+    "schedule": [
+      {
+        "station_code": "MMR",
+        "station_name": "Manmad Junction",
+        "day": 1,
+        "scheduled_arr": "02:40",
+        "scheduled_dep": "02:45",
+        "distance_km": 0,
+        "platform": "4"
+      },
+      {
+        "station_code": "KPG",
+        "station_name": "Kopargaon",
+        "day": 1,
+        "scheduled_arr": "03:28",
+        "scheduled_dep": "03:30",
+        "distance_km": 42,
+        "platform": "2"
+      }
+    ],
+    "status": {
+      "current_status": "Running",
+      "current_km": 278,
+      "current_speed_kmh": 82,
+      "last_reported_station": "MMR",
+      "next_station": "KPG",
+      "simulated_delay_mins": 9,
+      "signal_aspect": "Green",
+      "block_section": "MMR-KPG Block 3",
+      "pnp_score": 92.4,
+      "current_delay_mins": 4,
+      "predicted_delay_mins": 3,
+      "delay_probability": 45,
+      "conflict_status": "NONE",
+      "hold_status": "CLEAR",
+      "hold_time_mins": 0
+    }
+  },
+  {
+    "train_number": "12432",
+    "name": "Marathwada Rajdhani Link",
+    "type": "Rajdhani",
+    "priority": 1,
+    "corridor_code": "MMR-KPG",
+    "origin": "MMR",
+    "destination": "KPG",
+    "locomotive": "WAP-7 (Ajni Shed #30412)",
+    "rake_type": "LHB AC 18 Coaches",
+    "max_speed_kmh": 110,
+    "avg_speed_kmh": 78.0,
+    "schedule": [
+      {
+        "station_code": "MMR",
+        "station_name": "Manmad Junction",
+        "day": 1,
+        "scheduled_arr": "10:10",
+        "scheduled_dep": "10:15",
+        "distance_km": 0,
+        "platform": "1"
+      },
+      {
+        "station_code": "KPG",
+        "station_name": "Kopargaon",
+        "day": 1,
+        "scheduled_arr": "10:48",
+        "scheduled_dep": "10:50",
+        "distance_km": 42,
+        "platform": "1"
+      }
+    ],
+    "status": {
+      "current_status": "Running",
+      "current_km": 18,
+      "current_speed_kmh": 85,
+      "last_reported_station": "MMR",
+      "next_station": "KPG",
+      "current_delay_mins": 0,
+      "predicted_delay_mins": 2,
+      "delay_probability": 18,
+      "conflict_status": "NONE",
+      "hold_status": "CLEAR",
+      "hold_time_mins": 0,
+      "simulated_delay_mins": 2,
+      "signal_aspect": "Green",
+      "block_section": "MMR-KPG Single Block A",
+      "pnp_score": 97.5
+    }
+  },
+  {
+    "train_number": "11077",
+    "name": "Jhelum Express",
+    "type": "Express",
+    "priority": 3,
+    "corridor_code": "MMR-KPG",
+    "origin": "MMR",
+    "destination": "KPG",
+    "locomotive": "WAP-4 (Bhushawal Shed #22384)",
+    "rake_type": "ICF Conventional 22 Coaches",
+    "max_speed_kmh": 90,
+    "avg_speed_kmh": 58.0,
+    "schedule": [
+      {
+        "station_code": "MMR",
+        "station_name": "Manmad Junction",
+        "day": 1,
+        "scheduled_arr": "09:45",
+        "scheduled_dep": "09:50",
+        "distance_km": 0,
+        "platform": "3"
+      },
+      {
+        "station_code": "KPG",
+        "station_name": "Kopargaon",
+        "day": 1,
+        "scheduled_arr": "10:35",
+        "scheduled_dep": "10:37",
+        "distance_km": 42,
+        "platform": "2"
+      }
+    ],
+    "status": {
+      "current_status": "Delayed",
+      "current_km": 30,
+      "current_speed_kmh": 55,
+      "last_reported_station": "MMR",
+      "next_station": "KPG",
+      "current_delay_mins": 12,
+      "predicted_delay_mins": 4,
+      "delay_probability": 78,
+      "conflict_status": "NONE",
+      "hold_status": "CLEAR",
+      "hold_time_mins": 0,
+      "simulated_delay_mins": 16,
+      "signal_aspect": "Yellow",
+      "block_section": "MMR-KPG Single Block B",
+      "pnp_score": 79.2
+    }
+  },
+  {
+    "train_number": "12780",
+    "name": "Goa Express",
+    "type": "Express",
+    "priority": 3,
+    "corridor_code": "MMR-KPG",
+    "origin": "MMR",
+    "destination": "KPG",
+    "locomotive": "WAP-7 (Tughlakabad Shed #30612)",
+    "rake_type": "LHB 22 Coaches",
+    "max_speed_kmh": 100,
+    "avg_speed_kmh": 65.0,
+    "schedule": [
+      {
+        "station_code": "MMR",
+        "station_name": "Manmad Junction",
+        "day": 1,
+        "scheduled_arr": "11:15",
+        "scheduled_dep": "11:20",
+        "distance_km": 0,
+        "platform": "2"
+      },
+      {
+        "station_code": "KPG",
+        "station_name": "Kopargaon",
+        "day": 1,
+        "scheduled_arr": "12:02",
+        "scheduled_dep": "12:04",
+        "distance_km": 42,
+        "platform": "1"
+      }
+    ],
+    "status": {
+      "current_status": "Predicted Delay",
+      "current_km": 5,
+      "current_speed_kmh": 70,
+      "last_reported_station": "MMR",
+      "next_station": "KPG",
+      "current_delay_mins": 3,
+      "predicted_delay_mins": 8,
+      "delay_probability": 84,
+      "conflict_status": "NONE",
+      "hold_status": "CLEAR",
+      "hold_time_mins": 0,
+      "simulated_delay_mins": 11,
+      "signal_aspect": "Double Yellow",
+      "block_section": "MMR Outer Approach",
+      "pnp_score": 83.1
+    }
+  },
+  {
+    "train_number": "51503",
+    "name": "Manmad - Pune Passenger",
+    "type": "Passenger",
+    "priority": 4,
+    "corridor_code": "MMR-KPG",
+    "origin": "MMR",
+    "destination": "KPG",
+    "locomotive": "WAP-4 (Kalyan Shed #22510)",
+    "rake_type": "ICF Unreserved 14 Coaches",
+    "max_speed_kmh": 75,
+    "avg_speed_kmh": 45.0,
+    "schedule": [
+      {
+        "station_code": "MMR",
+        "station_name": "Manmad Junction",
+        "day": 1,
+        "scheduled_arr": "10:15",
+        "scheduled_dep": "10:20",
+        "distance_km": 0,
+        "platform": "5"
+      },
+      {
+        "station_code": "KPG",
+        "station_name": "Kopargaon",
+        "day": 1,
+        "scheduled_arr": "11:18",
+        "scheduled_dep": "11:20",
+        "distance_km": 42,
+        "platform": "2"
+      }
+    ],
+    "status": {
+      "current_status": "Held - Conflict",
+      "current_km": 0,
+      "current_speed_kmh": 0,
+      "last_reported_station": "MMR",
+      "next_station": "KPG",
+      "current_delay_mins": 5,
+      "predicted_delay_mins": 3,
+      "delay_probability": 89,
+      "conflict_status": "CONFLICT DETECTED",
+      "hold_status": "HELD AT LOOP",
+      "hold_time_mins": 8,
+      "conflict_with": "12432 (Rajdhani)",
+      "hold_reason": "Single-track section precedence given to higher-priority Rajdhani Express",
+      "simulated_delay_mins": 16,
+      "signal_aspect": "Red",
+      "block_section": "MMR Platform 5 Loop Line",
+      "pnp_score": 64.0
+    }
+  },
+  {
+    "train_number": "51504",
+    "name": "Kopargaon - Manmad Shuttle",
+    "type": "Passenger",
+    "priority": 4,
+    "corridor_code": "MMR-KPG",
+    "origin": "KPG",
+    "destination": "MMR",
+    "locomotive": "WAP-4 (Bhusawal Shed #22601)",
+    "rake_type": "ICF Shuttle 12 Coaches",
+    "max_speed_kmh": 75,
+    "avg_speed_kmh": 46.0,
+    "schedule": [
+      {
+        "station_code": "KPG",
+        "station_name": "Kopargaon",
+        "day": 1,
+        "scheduled_arr": "12:30",
+        "scheduled_dep": "12:35",
+        "distance_km": 0,
+        "platform": "2"
+      },
+      {
+        "station_code": "MMR",
+        "station_name": "Manmad Junction",
+        "day": 1,
+        "scheduled_arr": "13:30",
+        "scheduled_dep": "13:35",
+        "distance_km": 42,
+        "platform": "4"
+      }
+    ],
+    "status": {
+      "current_status": "On Time",
+      "current_km": 0,
+      "current_speed_kmh": 0,
+      "last_reported_station": "KPG",
+      "next_station": "MMR",
+      "current_delay_mins": 0,
+      "predicted_delay_mins": 0,
+      "delay_probability": 12,
+      "conflict_status": "NONE",
+      "hold_status": "CLEAR",
+      "hold_time_mins": 0,
+      "simulated_delay_mins": 0,
+      "signal_aspect": "Green",
+      "block_section": "KPG Yard Staging Line",
+      "pnp_score": 98.0
+    }
+  }
+]
