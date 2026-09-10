@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { 
   Radio, 
   Layers, 
@@ -43,8 +43,10 @@ import {
   reassignPlatform,
   simulatePlatformScenario
 } from '../services/api';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function ManmadJunctionFocus() {
+  const { t } = useLanguage();
   const [overview, setOverview] = useState(null);
   const [platforms, setPlatforms] = useState([]);
   const [conflicts, setConflicts] = useState([]);
@@ -75,6 +77,27 @@ export default function ManmadJunctionFocus() {
   const [reassignTargetPf, setReassignTargetPf] = useState(3);
   const [reassignCustomReason, setReassignCustomReason] = useState('');
   const [isReassigning, setIsReassigning] = useState(false);
+
+  // Visual Display Mode State ('both' | 'schematic' | 'map')
+  const [visualMode, setVisualMode] = useState('both');
+  const [isSchematicHighlighted, setIsSchematicHighlighted] = useState(false);
+  const schematicSectionRef = useRef(null);
+
+  const handleOpenStationSchematic = () => {
+    if (visualMode === 'map') {
+      setVisualMode('schematic');
+    }
+    setIsSchematicHighlighted(true);
+    setTimeout(() => {
+      setIsSchematicHighlighted(false);
+    }, 4000);
+
+    setTimeout(() => {
+      if (schematicSectionRef.current) {
+        schematicSectionRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }, 100);
+  };
 
   // Load all MMR data
   const loadData = async () => {
@@ -235,21 +258,20 @@ export default function ManmadJunctionFocus() {
               </span>
             </div>
             <h1 className="text-2xl md:text-3xl font-extrabold text-white tracking-tight flex items-center gap-3">
-              Manmad Junction Operations & Two-Train Conflict Engine
+              {t('mmr.title')}
             </h1>
             <p className="text-sm text-slate-400 max-w-4xl">
-              Specialized single-station control room for Manmad Junction (MMR). Highlighting throat diamond interlocking,
-              side-by-side multi-factor priority evaluation, dual distinct explainability, and manual Section Controller override.
+              {t('mmr.subtitle')}
             </p>
           </div>
 
           <button
             onClick={loadData}
             disabled={loading}
-            className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white border border-slate-700 text-xs font-mono transition"
+            className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white border border-slate-700 text-xs font-mono transition cursor-pointer"
           >
             <RefreshCw className={`w-3.5 h-3.5 ${loading ? 'animate-spin' : ''}`} />
-            <span>Refresh State</span>
+            <span>{loading ? t('common.loading') : t('common.reset')}</span>
           </button>
         </div>
 
@@ -259,7 +281,7 @@ export default function ManmadJunctionFocus() {
           <div>
             <strong>STATION SCOPE & DATA SOURCE:</strong> Manmad Junction (MMR) demo calibrated with historical timetable structures
             and IMD Nashik seasonal baselines. Clearly labeled <span className="text-amber-400 font-bold">[Synthetic Scenario Data]</span>.
-            No live Indian Railways GPS or CRIS feeds are connected.
+            {t('banner.disclaimer')}
           </div>
         </div>
       </div>
@@ -269,16 +291,16 @@ export default function ManmadJunctionFocus() {
         {/* Platforms Status */}
         <div className="bg-slate-900/80 border border-slate-800 rounded-xl p-4 shadow-lg">
           <div className="flex items-center justify-between text-xs text-slate-400 mb-1">
-            <span className="font-semibold uppercase tracking-wider">Platform Allocation</span>
+            <span className="font-semibold uppercase tracking-wider">{t('mmr.berthEfficiency')}</span>
             <Layers className="w-4 h-4 text-cyan-400" />
           </div>
           <div className="text-2xl font-bold font-mono text-slate-100">
-            6 Platforms
+            6 {t('common.platforms')}
           </div>
           <div className="mt-2 flex items-center gap-2 text-xs font-mono">
             <span className="text-amber-400 font-semibold">{overview?.platform_summary?.occupied || 2} Occupied</span>
             <span className="text-slate-600">•</span>
-            <span className="text-emerald-400 font-semibold">{overview?.platform_summary?.clear || 3} Clear</span>
+            <span className="text-emerald-400 font-semibold">{overview?.platform_summary?.clear || 3} {t('common.clear')}</span>
             <span className="text-slate-600">•</span>
             <span className="text-cyan-400 font-semibold">{overview?.platform_summary?.reserved || 1} Reserved</span>
           </div>
@@ -287,7 +309,7 @@ export default function ManmadJunctionFocus() {
         {/* Converging Main Lines */}
         <div className="bg-slate-900/80 border border-slate-800 rounded-xl p-4 shadow-lg">
           <div className="flex items-center justify-between text-xs text-slate-400 mb-1">
-            <span className="font-semibold uppercase tracking-wider">Converging Corridors</span>
+            <span className="font-semibold uppercase tracking-wider">{t('header.corridor')}</span>
             <MapPin className="w-4 h-4 text-emerald-400" />
           </div>
           <div className="text-2xl font-bold font-mono text-emerald-400">
@@ -301,11 +323,11 @@ export default function ManmadJunctionFocus() {
         {/* Active Conflict Status */}
         <div className="bg-slate-900/80 border border-slate-800 rounded-xl p-4 shadow-lg">
           <div className="flex items-center justify-between text-xs text-slate-400 mb-1">
-            <span className="font-semibold uppercase tracking-wider">Interlocking Contention</span>
+            <span className="font-semibold uppercase tracking-wider">{t('mmr.criticalConflicts')}</span>
             <AlertOctagon className="w-4 h-4 text-rose-400" />
           </div>
           <div className="text-2xl font-bold font-mono text-rose-400 flex items-center gap-2">
-            <span>{conflicts.length} Active Conflict</span>
+            <span>{conflicts.length} {t('mmr.conflictEngineActive')}</span>
             <span className="w-2.5 h-2.5 rounded-full bg-rose-500 animate-ping" />
           </div>
           <div className="mt-2 text-xs text-slate-400">
@@ -316,7 +338,7 @@ export default function ManmadJunctionFocus() {
         {/* IMD Nashik Weather */}
         <div className="bg-slate-900/80 border border-slate-800 rounded-xl p-4 shadow-lg relative">
           <div className="flex items-center justify-between text-xs text-slate-400 mb-1">
-            <span className="font-semibold uppercase tracking-wider">IMD Nashik Weather</span>
+            <span className="font-semibold uppercase tracking-wider">{t('mmr.weatherVisibility')}</span>
             {overview?.weather?.fog_flag ? (
               <CloudFog className="w-4 h-4 text-amber-400 animate-pulse" />
             ) : (
@@ -333,14 +355,14 @@ export default function ManmadJunctionFocus() {
           </div>
           <div className="mt-2 flex items-center justify-between text-[11px] font-mono">
             <span className={overview?.weather?.fog_flag ? "text-amber-400 font-bold" : "text-emerald-400"}>
-              {overview?.weather?.fog_flag ? "⚠️ FOG ACTIVE (PSR 30 km/h)" : "Normal Track Speed"}
+              {overview?.weather?.fog_flag ? t('mmr.fogActive') : t('mmr.normalSpeed')}
             </span>
             <button
               onClick={() => handleToggleWeather(!overview?.weather?.fog_flag)}
               disabled={simulatingWeather}
-              className="px-1.5 py-0.5 rounded bg-slate-800 hover:bg-slate-700 text-slate-300 text-[10px] border border-slate-700 transition"
+              className="px-1.5 py-0.5 rounded bg-slate-800 hover:bg-slate-700 text-slate-300 text-[10px] border border-slate-700 transition cursor-pointer"
             >
-              {overview?.weather?.fog_flag ? "Clear Fog" : "Simulate Fog"}
+              {overview?.weather?.fog_flag ? t('mmr.clearFog') : t('mmr.simulateFog')}
             </button>
           </div>
         </div>
@@ -348,11 +370,78 @@ export default function ManmadJunctionFocus() {
 
       {/* 3. DUAL VISUALS: Interlocking Schematic + Regional GIS Map */}
       <div className="space-y-4">
-        {/* Custom SVG Interlocking Mimic Panel */}
-        <ManmadStationSchematic platforms={platforms} activeConflict={activeConflict} />
+        {/* Visual Mode Navigation Bar */}
+        <div className="flex flex-wrap items-center justify-between gap-3 p-3 rounded-xl bg-slate-900/90 border border-slate-800 shadow-md">
+          <div className="flex items-center gap-2.5 flex-wrap">
+            <span className="text-xs font-mono font-bold text-slate-400 uppercase tracking-wider flex items-center gap-1.5">
+              <Layers className="w-3.5 h-3.5 text-cyan-400" />
+              {t('mmr.visualMode')}
+            </span>
+            <div className="flex items-center gap-1 bg-slate-950 p-1 rounded-lg border border-slate-800 flex-wrap">
+              <button
+                onClick={() => setVisualMode('both')}
+                className={`px-3 py-1.5 rounded text-xs font-mono font-bold transition flex items-center gap-1.5 cursor-pointer ${
+                  visualMode === 'both' 
+                    ? 'bg-cyan-600 text-white shadow-[0_0_12px_rgba(6,182,212,0.4)]' 
+                    : 'text-slate-400 hover:text-slate-200'
+                }`}
+              >
+                <span>🔄</span> {t('mmr.splitView')}
+              </button>
+              <button
+                onClick={() => setVisualMode('schematic')}
+                className={`px-3 py-1.5 rounded text-xs font-mono font-bold transition flex items-center gap-1.5 cursor-pointer ${
+                  visualMode === 'schematic' 
+                    ? 'bg-cyan-600 text-white shadow-[0_0_12px_rgba(6,182,212,0.4)]' 
+                    : 'text-slate-400 hover:text-slate-200'
+                }`}
+              >
+                <span>⚡</span> {t('mmr.schematicTab')}
+              </button>
+              <button
+                onClick={() => setVisualMode('map')}
+                className={`px-3 py-1.5 rounded text-xs font-mono font-bold transition flex items-center gap-1.5 cursor-pointer ${
+                  visualMode === 'map' 
+                    ? 'bg-cyan-600 text-white shadow-[0_0_12px_rgba(6,182,212,0.4)]' 
+                    : 'text-slate-400 hover:text-slate-200'
+                }`}
+              >
+                <span>🗺️</span> {t('mmr.mapTab')}
+              </button>
+            </div>
+          </div>
 
-        {/* Leaflet OpenStreetMap Regional Convergence Map */}
-        <ManmadRegionalMap />
+          <div className="flex items-center gap-2 flex-wrap">
+            {visualMode === 'map' && (
+              <button
+                onClick={handleOpenStationSchematic}
+                className="px-3 py-1.5 rounded bg-cyan-600 hover:bg-cyan-500 text-white text-xs font-mono font-bold flex items-center gap-1.5 border border-cyan-400 shadow-[0_0_14px_rgba(6,182,212,0.5)] transition animate-pulse cursor-pointer"
+              >
+                <span>⚡</span>
+                <span>{t('mmr.openSchematicBtn')}</span>
+              </button>
+            )}
+            <span className="text-[11px] font-mono text-slate-400 bg-slate-950 px-2.5 py-1 rounded border border-slate-800">
+              {t('mmr.mapTip')}
+            </span>
+          </div>
+        </div>
+
+        {/* Custom SVG Interlocking Mimic Panel (Image 2) */}
+        {(visualMode === 'both' || visualMode === 'schematic') && (
+          <div ref={schematicSectionRef} className="scroll-mt-4">
+            <ManmadStationSchematic 
+              platforms={platforms} 
+              activeConflict={activeConflict} 
+              isHighlighted={isSchematicHighlighted} 
+            />
+          </div>
+        )}
+
+        {/* Leaflet OpenStreetMap Regional Convergence Map (Image 1) */}
+        {(visualMode === 'both' || visualMode === 'map') && (
+          <ManmadRegionalMap onOpenStationSchematic={handleOpenStationSchematic} />
+        )}
       </div>
 
       {/* 4. PLATFORM ASSIGNMENTS & THROUGH-LINE CLEARANCE PANEL */}
@@ -361,14 +450,14 @@ export default function ManmadJunctionFocus() {
           <div>
             <h3 className="text-base font-bold text-slate-100 uppercase tracking-wider flex items-center gap-2">
               <Layers className="w-4 h-4 text-cyan-400" />
-              Platform Infrastructure & Active Berthing Allocation
+              {t('mmr.platformInfraTitle')}
             </h3>
             <p className="text-xs text-slate-400">
-              Manmad Junction (MMR) Platform 1 to 6 clear standing length (CSL), through-line clearance & approach routing
+              {t('mmr.platformInfraDesc')}
             </p>
           </div>
           <span className="text-xs font-mono text-slate-400 bg-slate-950 px-2.5 py-1 rounded border border-slate-800">
-            CSL Standard: 720m (Full 24-Coach Rake Capacity)
+            {t('mmr.cslStandard')}
           </span>
         </div>
 
@@ -389,7 +478,7 @@ export default function ManmadJunctionFocus() {
               >
                 <div className="flex items-center justify-between mb-2">
                   <span className="font-mono text-sm font-extrabold text-white flex items-center gap-1.5">
-                    Platform {pf.platform_number}
+                    {t('common.platform')} {pf.platform_number}
                     <span className="text-[10px] text-slate-500 font-normal">({pf.length_meters}m)</span>
                   </span>
                   <span
@@ -401,7 +490,7 @@ export default function ManmadJunctionFocus() {
                         : 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/30'
                     }`}
                   >
-                    {pf.status}
+                    {isOccupied ? 'Occupied' : isReserved ? 'Reserved' : t('common.clear')}
                   </span>
                 </div>
 
@@ -426,7 +515,7 @@ export default function ManmadJunctionFocus() {
                   </div>
                 ) : (
                   <div className="p-2 rounded bg-slate-900/40 border border-dashed border-slate-800 text-[11px] text-slate-500 font-mono text-center">
-                    Through-Line Unobstructed • Ready for Signal Clearance
+                    {t('mmr.lineClearMsg')}
                   </div>
                 )}
               </div>
@@ -905,7 +994,7 @@ export default function ManmadJunctionFocus() {
               <div className="flex items-center gap-2">
                 <Sliders className="w-4 h-4 text-cyan-400" />
                 <h4 className="text-sm font-bold text-white uppercase tracking-wider">
-                  Manual Section Controller Precedence Override
+                  {t('mmr.manualOverrideTitle')}
                 </h4>
               </div>
               <span className="text-[11px] font-mono text-cyan-400 bg-cyan-950/30 px-2 py-0.5 rounded border border-cyan-500/20">
@@ -916,7 +1005,7 @@ export default function ManmadJunctionFocus() {
             <form onSubmit={handleApplyOverride} className="grid grid-cols-1 md:grid-cols-3 gap-3 items-end">
               <div>
                 <label className="block text-[11px] font-mono text-slate-400 mb-1">
-                  Award Precedence To:
+                  {t('mmr.selectFavoredTrain')}:
                 </label>
                 <select
                   value={selectedFavoredTrain}
@@ -935,26 +1024,26 @@ export default function ManmadJunctionFocus() {
 
               <div>
                 <label className="block text-[11px] font-mono text-slate-400 mb-1">
-                  Override Justification (Required for Audit):
+                  {t('mmr.overrideReason')}:
                 </label>
                 <select
                   value={overrideReason}
                   onChange={(e) => setOverrideReason(e.target.value)}
                   className="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-xs font-mono text-white focus:outline-none focus:border-cyan-500"
                 >
-                  <option value="VIP Movement">VIP Movement</option>
-                  <option value="Medical Emergency">Medical Emergency</option>
-                  <option value="Planned Engineering Block">Planned Engineering Block</option>
-                  <option value="Local Station Master / Controller Instruction">Local Station Master / Controller Instruction</option>
-                  <option value="Track Integrity / Caution Order">Track Integrity / Caution Order</option>
-                  <option value="Other Operational Grounds">Other Operational Grounds</option>
+                  <option value="VIP Movement">VIP Movement (व्ही.आय.पी. हालचाल)</option>
+                  <option value="Medical Emergency">Medical Emergency (वैद्यकीय आणीबाणी)</option>
+                  <option value="Planned Engineering Block">Planned Engineering Block (अभियांत्रिकी ब्लॉक)</option>
+                  <option value="Local Station Master / Controller Instruction">Station Master Instruction (स्टेशन मास्टर निर्देश)</option>
+                  <option value="Track Integrity / Caution Order">Track Integrity / Caution Order (ट्रॅक खबरदारी आदेश)</option>
+                  <option value="Other Operational Grounds">Other Operational Grounds (इतर ऑपरेशन्स कारणे)</option>
                 </select>
               </div>
 
               <div className="flex gap-2">
                 <input
                   type="text"
-                  placeholder="Optional log note..."
+                  placeholder={t('mmr.controllerNotesPlaceholder')}
                   value={controllerNotes}
                   onChange={(e) => setControllerNotes(e.target.value)}
                   className="flex-1 bg-slate-900 border border-slate-700 rounded-lg p-2 text-xs font-mono text-white focus:outline-none focus:border-cyan-500"
@@ -962,10 +1051,10 @@ export default function ManmadJunctionFocus() {
                 <button
                   type="submit"
                   disabled={isSubmittingOverride}
-                  className="px-4 py-2 rounded-lg bg-cyan-600 hover:bg-cyan-500 text-white font-mono text-xs font-bold transition flex items-center gap-1.5 shrink-0"
+                  className="px-4 py-2 rounded-lg bg-cyan-600 hover:bg-cyan-500 text-white font-mono text-xs font-bold transition flex items-center gap-1.5 shrink-0 cursor-pointer"
                 >
                   <Send className="w-3.5 h-3.5" />
-                  <span>Execute Override</span>
+                  <span>{isSubmittingOverride ? t('mmr.submittingOverride') : t('mmr.commitDecision')}</span>
                 </button>
               </div>
             </form>
@@ -1057,7 +1146,7 @@ export default function ManmadJunctionFocus() {
           <div className="flex items-center justify-between mb-3 pb-2 border-b border-slate-800">
             <h3 className="text-sm font-bold text-slate-100 uppercase tracking-wider flex items-center gap-2">
               <History className="w-4 h-4 text-cyan-400" />
-              Section Controller Override Audit Trail (Historical Log)
+              {t('mmr.auditTitle')}
             </h3>
             <span className="text-xs font-mono text-slate-400">
               {auditLogs.length} Entries Logged
@@ -1110,14 +1199,14 @@ export default function ManmadJunctionFocus() {
             <div className="flex items-center gap-2">
               <h3 className="text-base font-bold text-slate-100 uppercase tracking-wider flex items-center gap-2">
                 <Calendar className="w-4 h-4 text-cyan-400" />
-                Tomorrow's Scheduled Timetable - Manmad Junction (MMR)
+                {t('mmr.timetableTitle')}
               </h3>
               <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-slate-800 text-slate-300 border border-slate-700">
                 [Static Scheduled Timetable - Not ML]
               </span>
             </div>
             <p className="text-xs text-slate-400">
-              Forward-looking 24-hour cycle sorted chronologically with platform berthing and approach corridors
+              {t('mmr.timetableDesc')}
             </p>
           </div>
 
@@ -1125,7 +1214,7 @@ export default function ManmadJunctionFocus() {
           <div className="flex flex-wrap items-center gap-2">
             <input
               type="text"
-              placeholder="Search train no / name..."
+              placeholder={t('mmr.searchTrainPlaceholder')}
               value={timetableSearch}
               onChange={(e) => setTimetableSearch(e.target.value)}
               className="bg-slate-950 border border-slate-800 rounded-lg px-2.5 py-1 text-xs font-mono text-slate-200 placeholder-slate-600 focus:outline-none focus:border-cyan-500"
@@ -1133,9 +1222,9 @@ export default function ManmadJunctionFocus() {
             <div className="flex rounded-lg border border-slate-800 bg-slate-950 p-0.5 text-xs font-mono">
               <button
                 onClick={() => setTimetableFilter('ALL')}
-                className={`px-2 py-0.5 rounded ${timetableFilter === 'ALL' ? 'bg-cyan-600 text-white font-bold' : 'text-slate-400'}`}
+                className={`px-2 py-0.5 rounded cursor-pointer ${timetableFilter === 'ALL' ? 'bg-cyan-600 text-white font-bold' : 'text-slate-400'}`}
               >
-                All
+                {t('mmr.allCorridorsFilter')}
               </button>
               <button
                 onClick={() => setTimetableFilter('P1')}

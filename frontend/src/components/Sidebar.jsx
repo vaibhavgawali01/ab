@@ -12,6 +12,8 @@ import {
   Radio,
   Signal
 } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
+import LanguageSwitcher from './LanguageSwitcher';
 
 export default function Sidebar({ 
   activeTab, 
@@ -21,29 +23,31 @@ export default function Sidebar({
   isMobileOpen,
   closeMobileMenu 
 }) {
+  const { t } = useLanguage();
+
   const navItems = [
-    { id: 'manmad-focus', label: 'Manmad Junction (MMR)', icon: Signal, badge: 'HOT', badgeColor: 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40 font-bold' },
-    { id: 'mmr-kpg', label: 'MMR ↔ KPG Control Room', icon: Radio, badge: 'FOCUS', badgeColor: 'bg-cyan-500/20 text-cyan-300 border-cyan-500/40 font-bold' },
-    { id: 'dashboard', label: 'Network Dashboard', icon: LayoutDashboard, badge: null },
-    { id: 'live-tracking', label: 'Train Replay (Simulation)', icon: Navigation, badge: 'Replay' },
-    { id: 'train-details', label: 'Train Details', icon: Train, badge: null },
-    { id: 'eta-prediction', label: 'ETA Prediction', icon: Hourglass, badge: 'ML' },
+    { id: 'manmad-focus', label: t('nav.manmadFocus'), icon: Signal, badge: 'HOT', badgeColor: 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40 font-bold' },
+    { id: 'mmr-kpg', label: t('nav.mmrKpgControlRoom'), icon: Radio, badge: 'FOCUS', badgeColor: 'bg-cyan-500/20 text-cyan-300 border-cyan-500/40 font-bold' },
+    { id: 'dashboard', label: t('nav.dashboard'), icon: LayoutDashboard, badge: null },
+    { id: 'live-tracking', label: t('nav.trainReplay'), icon: Navigation, badge: 'Replay' },
+    { id: 'train-details', label: t('nav.trainDetails'), icon: Train, badge: null },
+    { id: 'eta-prediction', label: t('nav.etaPrediction'), icon: Hourglass, badge: 'ML' },
     { 
       id: 'conflict-mgmt', 
-      label: 'Conflict Management', 
+      label: t('nav.conflictMgmt'), 
       icon: AlertOctagon, 
       badge: activeConflictsCount > 0 ? `${activeConflictsCount}` : null,
       badgeColor: 'bg-rose-500/20 text-rose-300 border-rose-500/30'
     },
     { 
       id: 'delay-analysis', 
-      label: 'Delay Analysis', 
+      label: t('nav.delayAnalysis'), 
       icon: BarChart3, 
       badge: delayedTrainsCount > 0 ? `${delayedTrainsCount}` : null,
       badgeColor: 'bg-amber-500/20 text-amber-300 border-amber-500/30'
     },
-    { id: 'historical-data', label: 'Historical Data', icon: History, badge: null },
-    { id: 'about', label: 'About TrackPulse', icon: HelpCircle, badge: 'Info' }
+    { id: 'historical-data', label: t('nav.historicalData'), icon: History, badge: null },
+    { id: 'about', label: t('nav.about'), icon: HelpCircle, badge: 'Info' }
   ];
 
   return (
@@ -67,20 +71,23 @@ export default function Sidebar({
         <div className="p-4 border-b border-slate-800/80 flex items-center justify-between md:hidden">
           <div className="flex items-center gap-2">
             <Radio className="w-5 h-5 text-cyan-400" />
-            <span className="font-bold text-white font-mono">TRACKPULSE NAV</span>
+            <span className="font-bold text-white font-mono">{t('nav.navTitle')}</span>
           </div>
-          <button 
-            onClick={closeMobileMenu}
-            className="p-1 rounded text-slate-400 hover:text-white"
-          >
-            <X className="w-5 h-5" />
-          </button>
+          <div className="flex items-center gap-2">
+            <LanguageSwitcher />
+            <button 
+              onClick={closeMobileMenu}
+              className="p-1 rounded text-slate-400 hover:text-white"
+            >
+              <X className="w-5 h-5" />
+            </button>
+          </div>
         </div>
 
         {/* Links List */}
         <div className="p-3 space-y-1.5 flex-1 overflow-y-auto">
           <div className="px-3 py-2 text-[10px] font-mono tracking-wider text-slate-400 uppercase">
-            Control Room Views
+            {t('nav.controlRoomViews')}
           </div>
 
           {navItems.map((item) => {

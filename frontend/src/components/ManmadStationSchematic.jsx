@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { Layers, ShieldCheck, AlertTriangle, Eye, CheckCircle2 } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
-export default function ManmadStationSchematic({ platforms = [], activeConflict = null }) {
+export default function ManmadStationSchematic({ platforms = [], activeConflict = null, isHighlighted = false }) {
+  const { t } = useLanguage();
   const [selectedElement, setSelectedElement] = useState(null);
 
   // Helper to find train on platform
@@ -16,7 +18,14 @@ export default function ManmadStationSchematic({ platforms = [], activeConflict 
   };
 
   return (
-    <div className="bg-slate-900/90 border border-slate-800 rounded-xl p-4 shadow-2xl relative overflow-hidden">
+    <div 
+      id="mmr-schematic-overview" 
+      className={`bg-slate-900/90 border rounded-xl p-4 shadow-2xl relative overflow-hidden transition-all duration-500 ${
+        isHighlighted 
+          ? 'border-cyan-400 ring-4 ring-cyan-400/40 shadow-[0_0_35px_rgba(6,182,212,0.5)]' 
+          : 'border-slate-800'
+      }`}
+    >
       {/* Header & Interlocking Badge */}
       <div className="flex flex-wrap items-center justify-between gap-3 mb-4 pb-3 border-b border-slate-800">
         <div className="flex items-center gap-2">
@@ -24,16 +33,21 @@ export default function ManmadStationSchematic({ platforms = [], activeConflict 
             <Layers className="w-5 h-5" />
           </div>
           <div>
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 flex-wrap">
               <h3 className="text-base font-bold text-slate-100 uppercase tracking-wider">
-                MMR Electronic Interlocking (EI) CTC Mimic Schematic
+                {t('schematic.title')}
               </h3>
               <span className="px-2 py-0.5 rounded text-[11px] font-mono font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
-                SOLID STATE EI ACTIVE
+                {t('schematic.solidStateBadge')}
               </span>
+              {isHighlighted && (
+                <span className="px-2 py-0.5 rounded text-[11px] font-mono font-bold bg-cyan-500/20 text-cyan-300 border border-cyan-400 animate-pulse flex items-center gap-1 shadow-[0_0_10px_rgba(6,182,212,0.4)]">
+                  {t('schematic.openedBadge')}
+                </span>
+              )}
             </div>
             <p className="text-xs text-slate-400">
-              Yard Yard-Plan & Point Machine Interlocking | 6 Platforms, 4 Converging Approaches
+              {t('schematic.subtext')}
             </p>
           </div>
         </div>
@@ -42,15 +56,15 @@ export default function ManmadStationSchematic({ platforms = [], activeConflict 
         <div className="flex items-center gap-4 text-xs font-mono">
           <div className="flex items-center gap-1.5">
             <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 inline-block shadow-[0_0_8px_rgba(16,185,129,0.8)]" />
-            <span className="text-slate-300">Signal Clear (Green)</span>
+            <span className="text-slate-300">{t('schematic.signalClear')}</span>
           </div>
           <div className="flex items-center gap-1.5">
             <span className="w-2.5 h-2.5 rounded-full bg-rose-500 inline-block shadow-[0_0_8px_rgba(244,63,94,0.8)]" />
-            <span className="text-slate-300">Danger (Red)</span>
+            <span className="text-slate-300">{t('schematic.signalDanger')}</span>
           </div>
           <div className="flex items-center gap-1.5">
             <span className="w-2.5 h-2.5 rounded-full bg-amber-400 inline-block animate-pulse" />
-            <span className="text-amber-300">Conflict Point 14B</span>
+            <span className="text-amber-300">{t('schematic.conflictPoint14B')}</span>
           </div>
         </div>
       </div>
