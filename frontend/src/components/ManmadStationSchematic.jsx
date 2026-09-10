@@ -20,16 +20,16 @@ export default function ManmadStationSchematic({ platforms = [], activeConflict 
   return (
     <div 
       id="mmr-schematic-overview" 
-      className={`bg-slate-900/90 border rounded-xl p-4 shadow-2xl relative overflow-hidden transition-all duration-500 ${
+      className={`pro-card rounded-xl p-4 shadow-2xl relative overflow-hidden transition-all duration-500 ${
         isHighlighted 
-          ? 'border-cyan-400 ring-4 ring-cyan-400/40 shadow-[0_0_35px_rgba(6,182,212,0.5)]' 
+          ? 'border-sky-500/70 ring-2 ring-sky-500/30 shadow-[0_0_25px_rgba(2,132,199,0.25)]' 
           : 'border-slate-800'
       }`}
     >
       {/* Header & Interlocking Badge */}
       <div className="flex flex-wrap items-center justify-between gap-3 mb-4 pb-3 border-b border-slate-800">
         <div className="flex items-center gap-2">
-          <div className="p-2 rounded-lg bg-cyan-500/10 text-cyan-400 border border-cyan-500/30">
+          <div className="p-2 rounded-lg bg-sky-500/10 text-sky-400 border border-sky-500/25">
             <Layers className="w-5 h-5" />
           </div>
           <div>
@@ -37,11 +37,11 @@ export default function ManmadStationSchematic({ platforms = [], activeConflict 
               <h3 className="text-base font-bold text-slate-100 uppercase tracking-wider">
                 {t('schematic.title')}
               </h3>
-              <span className="px-2 py-0.5 rounded text-[11px] font-mono font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
+              <span className="px-2 py-0.5 rounded text-[11px] font-mono font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/25">
                 {t('schematic.solidStateBadge')}
               </span>
               {isHighlighted && (
-                <span className="px-2 py-0.5 rounded text-[11px] font-mono font-bold bg-cyan-500/20 text-cyan-300 border border-cyan-400 animate-pulse flex items-center gap-1 shadow-[0_0_10px_rgba(6,182,212,0.4)]">
+                <span className="px-2 py-0.5 rounded text-[11px] font-mono font-bold bg-sky-500/15 text-sky-300 border border-sky-500/30 flex items-center gap-1 shadow-sm">
                   {t('schematic.openedBadge')}
                 </span>
               )}
@@ -320,18 +320,18 @@ export default function ManmadStationSchematic({ platforms = [], activeConflict 
       </div>
 
       {/* Selected Platform Detail Bar */}
-      <div className="mt-3 p-3 bg-slate-950/70 border border-slate-800 rounded-lg flex flex-wrap items-center justify-between gap-3 text-xs">
+      <div className="mt-3 p-3 bg-[#0b0f19] border border-slate-800 rounded-lg flex flex-wrap items-center justify-between gap-3 text-xs">
         <div className="flex items-center gap-2">
           <span className="font-bold text-slate-200">Selected Track Element:</span>
           {selectedElement ? (
-            <span className="text-cyan-400 font-mono font-semibold">
+            <span className="text-sky-400 font-mono font-semibold">
               Platform {selectedElement.platform_number || selectedElement.pf}: {selectedElement.line_type || 'Main Line'} ({selectedElement.length_meters || 650}m CSL)
             </span>
           ) : (
             <span className="text-slate-400 italic">Click any platform line above to inspect interlocking specifications</span>
           )}
         </div>
-        <div className="flex items-center gap-4 text-slate-400">
+        <div className="flex items-center gap-4 text-slate-400 font-mono">
           <span>Axle Counter Blocks: <strong className="text-emerald-400">All Normal</strong></span>
           <span>Point Machine Health: <strong className="text-emerald-400">100% Locked</strong></span>
         </div>

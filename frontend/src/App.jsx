@@ -148,7 +148,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#070b14] text-slate-100 flex flex-col selection:bg-cyan-500 selection:text-white">
+    <div className="min-h-screen bg-[#080c15] text-slate-100 flex flex-col selection:bg-sky-500 selection:text-white">
       
       {/* 1. Mandatory Prototype Disclaimer Banner */}
       <PrototypeBanner />
@@ -182,8 +182,8 @@ export default function App() {
         />
 
         {/* Dynamic Page Router Container */}
-        <main className="flex-1 overflow-y-auto p-4 md:p-6 lg:p-8 bg-[#090d16]">
-          <div className="max-w-7xl mx-auto">
+        <main className="flex-1 overflow-y-auto p-4 md:p-6 lg:p-8 bg-transparent">
+          <div className="max-w-[1550px] mx-auto">
             
             {activeTab === 'manmad-focus' && (
               <ManmadJunctionFocus />
@@ -277,20 +277,20 @@ export default function App() {
       </div>
 
       {/* 4. Control Room Footer Status */}
-      <footer className="bg-[#0b1120] border-t border-slate-800/80 px-4 py-2 text-[11px] font-mono text-slate-400 flex flex-wrap items-center justify-between gap-2 z-20">
+      <footer className="bg-[#0a0e17]/95 border-t border-slate-800/90 px-4 py-2 text-[11px] font-mono text-slate-400 flex flex-wrap items-center justify-between gap-2 z-20 backdrop-blur-md">
         <div className="flex items-center gap-3">
           <span className="flex items-center gap-1.5">
-            <span className="w-2 h-2 rounded-full bg-cyan-400"></span>
-            <span>IR Broad Gauge 1676mm</span>
+            <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
+            <span className="text-slate-300">IR Broad Gauge 1676mm</span>
           </span>
-          <span className="hidden sm:inline text-slate-600">|</span>
+          <span className="hidden sm:inline text-slate-700">|</span>
           <span className="hidden sm:inline">Automatic Block Signaling (ABS)</span>
-          <span className="hidden sm:inline text-slate-600">|</span>
+          <span className="hidden sm:inline text-slate-700">|</span>
           <span className="hidden sm:inline text-slate-400">25 kV AC 50 Hz Electric Traction</span>
         </div>
 
-        <div className="text-amber-400/90 text-[10px]">
-          Prototype Research Model · No Live GPS Feeds
+        <div className="text-amber-400/80 text-[10.5px]">
+          Prototype Research Model · Calibrated with Operational Guidelines
         </div>
       </footer>
 

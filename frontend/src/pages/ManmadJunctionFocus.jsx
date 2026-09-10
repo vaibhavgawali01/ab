@@ -241,19 +241,19 @@ export default function ManmadJunctionFocus() {
   return (
     <div className="space-y-6 pb-12">
       {/* 1. Header Banner & Scope */}
-      <div className="bg-gradient-to-r from-slate-900 via-slate-900/90 to-blue-950/40 border border-slate-800 rounded-xl p-5 shadow-2xl relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="pro-card rounded-xl p-5 shadow-2xl relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-sky-500/5 rounded-full blur-3xl pointer-events-none" />
         
         <div className="flex flex-wrap items-start justify-between gap-4">
           <div className="space-y-1">
             <div className="flex items-center gap-2 flex-wrap">
-              <span className="px-2.5 py-0.5 rounded-full text-xs font-mono font-bold bg-cyan-500/20 text-cyan-300 border border-cyan-500/40">
+              <span className="px-2.5 py-0.5 rounded-full text-xs font-mono font-bold bg-sky-500/10 text-sky-300 border border-sky-500/25">
                 CENTRAL RAILWAY • BHUSAWAL DIVISION
               </span>
-              <span className="px-2.5 py-0.5 rounded-full text-xs font-mono font-bold bg-amber-500/20 text-amber-300 border border-amber-500/40">
+              <span className="px-2.5 py-0.5 rounded-full text-xs font-mono font-bold bg-amber-500/10 text-amber-300 border border-amber-500/25">
                 STATION CODE: MMR (20.2498° N, 74.4384° E)
               </span>
-              <span className="px-2.5 py-0.5 rounded-full text-xs font-mono font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/40">
+              <span className="px-2.5 py-0.5 rounded-full text-xs font-mono font-bold bg-emerald-500/10 text-emerald-300 border border-emerald-500/25">
                 6 PLATFORMS • 4 CONVERGING LINES
               </span>
             </div>
@@ -268,7 +268,7 @@ export default function ManmadJunctionFocus() {
           <button
             onClick={loadData}
             disabled={loading}
-            className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white border border-slate-700 text-xs font-mono transition cursor-pointer"
+            className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-slate-300 hover:text-white border border-slate-800 text-xs font-mono transition cursor-pointer"
           >
             <RefreshCw className={`w-3.5 h-3.5 ${loading ? 'animate-spin' : ''}`} />
             <span>{loading ? t('common.loading') : t('common.reset')}</span>
@@ -289,10 +289,10 @@ export default function ManmadJunctionFocus() {
       {/* 2. Key Station Metrics & Live Weather */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         {/* Platforms Status */}
-        <div className="bg-slate-900/80 border border-slate-800 rounded-xl p-4 shadow-lg">
+        <div className="pro-card-hover rounded-xl p-4 shadow-lg">
           <div className="flex items-center justify-between text-xs text-slate-400 mb-1">
             <span className="font-semibold uppercase tracking-wider">{t('mmr.berthEfficiency')}</span>
-            <Layers className="w-4 h-4 text-cyan-400" />
+            <Layers className="w-4 h-4 text-sky-400" />
           </div>
           <div className="text-2xl font-bold font-mono text-slate-100">
             6 {t('common.platforms')}
@@ -302,12 +302,12 @@ export default function ManmadJunctionFocus() {
             <span className="text-slate-600">•</span>
             <span className="text-emerald-400 font-semibold">{overview?.platform_summary?.clear || 3} {t('common.clear')}</span>
             <span className="text-slate-600">•</span>
-            <span className="text-cyan-400 font-semibold">{overview?.platform_summary?.reserved || 1} Reserved</span>
+            <span className="text-sky-400 font-semibold">{overview?.platform_summary?.reserved || 1} Reserved</span>
           </div>
         </div>
 
         {/* Converging Main Lines */}
-        <div className="bg-slate-900/80 border border-slate-800 rounded-xl p-4 shadow-lg">
+        <div className="pro-card-hover rounded-xl p-4 shadow-lg">
           <div className="flex items-center justify-between text-xs text-slate-400 mb-1">
             <span className="font-semibold uppercase tracking-wider">{t('header.corridor')}</span>
             <MapPin className="w-4 h-4 text-emerald-400" />
@@ -321,14 +321,14 @@ export default function ManmadJunctionFocus() {
         </div>
 
         {/* Active Conflict Status */}
-        <div className="bg-slate-900/80 border border-slate-800 rounded-xl p-4 shadow-lg">
+        <div className="pro-card-hover rounded-xl p-4 shadow-lg">
           <div className="flex items-center justify-between text-xs text-slate-400 mb-1">
             <span className="font-semibold uppercase tracking-wider">{t('mmr.criticalConflicts')}</span>
             <AlertOctagon className="w-4 h-4 text-rose-400" />
           </div>
           <div className="text-2xl font-bold font-mono text-rose-400 flex items-center gap-2">
             <span>{conflicts.length} {t('mmr.conflictEngineActive')}</span>
-            <span className="w-2.5 h-2.5 rounded-full bg-rose-500 animate-ping" />
+            <span className="w-2 rounded-full h-2 bg-rose-500 animate-ping" />
           </div>
           <div className="mt-2 text-xs text-slate-400">
             Point 14B Diamond Crossover Contention
@@ -336,7 +336,7 @@ export default function ManmadJunctionFocus() {
         </div>
 
         {/* IMD Nashik Weather */}
-        <div className="bg-slate-900/80 border border-slate-800 rounded-xl p-4 shadow-lg relative">
+        <div className="pro-card-hover rounded-xl p-4 shadow-lg relative">
           <div className="flex items-center justify-between text-xs text-slate-400 mb-1">
             <span className="font-semibold uppercase tracking-wider">{t('mmr.weatherVisibility')}</span>
             {overview?.weather?.fog_flag ? (
@@ -360,7 +360,7 @@ export default function ManmadJunctionFocus() {
             <button
               onClick={() => handleToggleWeather(!overview?.weather?.fog_flag)}
               disabled={simulatingWeather}
-              className="px-1.5 py-0.5 rounded bg-slate-800 hover:bg-slate-700 text-slate-300 text-[10px] border border-slate-700 transition cursor-pointer"
+              className="px-2 py-0.5 rounded bg-slate-900 hover:bg-slate-800 text-slate-300 text-[10px] border border-slate-800 transition cursor-pointer"
             >
               {overview?.weather?.fog_flag ? t('mmr.clearFog') : t('mmr.simulateFog')}
             </button>
@@ -371,10 +371,10 @@ export default function ManmadJunctionFocus() {
       {/* 3. DUAL VISUALS: Interlocking Schematic + Regional GIS Map */}
       <div className="space-y-4">
         {/* Visual Mode Navigation Bar */}
-        <div className="flex flex-wrap items-center justify-between gap-3 p-3 rounded-xl bg-slate-900/90 border border-slate-800 shadow-md">
+        <div className="flex flex-wrap items-center justify-between gap-3 p-3 rounded-xl pro-card shadow-md">
           <div className="flex items-center gap-2.5 flex-wrap">
             <span className="text-xs font-mono font-bold text-slate-400 uppercase tracking-wider flex items-center gap-1.5">
-              <Layers className="w-3.5 h-3.5 text-cyan-400" />
+              <Layers className="w-3.5 h-3.5 text-sky-400" />
               {t('mmr.visualMode')}
             </span>
             <div className="flex items-center gap-1 bg-slate-950 p-1 rounded-lg border border-slate-800 flex-wrap">
@@ -382,7 +382,7 @@ export default function ManmadJunctionFocus() {
                 onClick={() => setVisualMode('both')}
                 className={`px-3 py-1.5 rounded text-xs font-mono font-bold transition flex items-center gap-1.5 cursor-pointer ${
                   visualMode === 'both' 
-                    ? 'bg-cyan-600 text-white shadow-[0_0_12px_rgba(6,182,212,0.4)]' 
+                    ? 'bg-sky-600 text-white shadow-sm' 
                     : 'text-slate-400 hover:text-slate-200'
                 }`}
               >
@@ -392,7 +392,7 @@ export default function ManmadJunctionFocus() {
                 onClick={() => setVisualMode('schematic')}
                 className={`px-3 py-1.5 rounded text-xs font-mono font-bold transition flex items-center gap-1.5 cursor-pointer ${
                   visualMode === 'schematic' 
-                    ? 'bg-cyan-600 text-white shadow-[0_0_12px_rgba(6,182,212,0.4)]' 
+                    ? 'bg-sky-600 text-white shadow-sm' 
                     : 'text-slate-400 hover:text-slate-200'
                 }`}
               >
@@ -402,7 +402,7 @@ export default function ManmadJunctionFocus() {
                 onClick={() => setVisualMode('map')}
                 className={`px-3 py-1.5 rounded text-xs font-mono font-bold transition flex items-center gap-1.5 cursor-pointer ${
                   visualMode === 'map' 
-                    ? 'bg-cyan-600 text-white shadow-[0_0_12px_rgba(6,182,212,0.4)]' 
+                    ? 'bg-sky-600 text-white shadow-sm' 
                     : 'text-slate-400 hover:text-slate-200'
                 }`}
               >
@@ -415,7 +415,7 @@ export default function ManmadJunctionFocus() {
             {visualMode === 'map' && (
               <button
                 onClick={handleOpenStationSchematic}
-                className="px-3 py-1.5 rounded bg-cyan-600 hover:bg-cyan-500 text-white text-xs font-mono font-bold flex items-center gap-1.5 border border-cyan-400 shadow-[0_0_14px_rgba(6,182,212,0.5)] transition animate-pulse cursor-pointer"
+                className="px-3 py-1.5 rounded bg-sky-600 hover:bg-sky-500 text-white text-xs font-mono font-bold flex items-center gap-1.5 border border-sky-400/50 shadow-sm transition cursor-pointer"
               >
                 <span>⚡</span>
                 <span>{t('mmr.openSchematicBtn')}</span>
@@ -445,11 +445,11 @@ export default function ManmadJunctionFocus() {
       </div>
 
       {/* 4. PLATFORM ASSIGNMENTS & THROUGH-LINE CLEARANCE PANEL */}
-      <div className="bg-slate-900/80 border border-slate-800 rounded-xl p-5 shadow-xl">
+      <div className="pro-card rounded-xl p-5 shadow-xl">
         <div className="flex flex-wrap items-center justify-between gap-3 mb-4 pb-3 border-b border-slate-800">
           <div>
             <h3 className="text-base font-bold text-slate-100 uppercase tracking-wider flex items-center gap-2">
-              <Layers className="w-4 h-4 text-cyan-400" />
+              <Layers className="w-4 h-4 text-sky-400" />
               {t('mmr.platformInfraTitle')}
             </h3>
             <p className="text-xs text-slate-400">
@@ -470,10 +470,10 @@ export default function ManmadJunctionFocus() {
                 key={pf.platform_number}
                 className={`p-3.5 rounded-lg border transition ${
                   isOccupied
-                    ? 'bg-slate-950/80 border-cyan-500/40 shadow-[0_0_15px_rgba(6,182,212,0.08)]'
+                    ? 'bg-[#0b0f19] border-sky-500/40 shadow-sm'
                     : isReserved
-                    ? 'bg-slate-950/80 border-amber-500/40'
-                    : 'bg-slate-950/40 border-slate-800/80'
+                    ? 'bg-[#0b0f19] border-amber-500/30'
+                    : 'bg-[#0b0f19]/60 border-slate-800/80'
                 }`}
               >
                 <div className="flex items-center justify-between mb-2">
@@ -484,9 +484,9 @@ export default function ManmadJunctionFocus() {
                   <span
                     className={`px-2 py-0.5 rounded text-[10px] font-mono font-bold uppercase ${
                       isOccupied
-                        ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-500/40'
+                        ? 'bg-sky-500/15 text-sky-300 border border-sky-500/30'
                         : isReserved
-                        ? 'bg-amber-500/20 text-amber-300 border border-amber-500/40'
+                        ? 'bg-amber-500/15 text-amber-300 border border-amber-500/30'
                         : 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/30'
                     }`}
                   >
@@ -505,7 +505,7 @@ export default function ManmadJunctionFocus() {
                 {/* Train Info or Clearance */}
                 {pf.current_train ? (
                   <div className="p-2 rounded bg-slate-900 border border-slate-800 text-xs font-mono">
-                    <div className="font-bold text-cyan-300 truncate">
+                    <div className="font-bold text-sky-300 truncate">
                       🚆 {pf.current_train.train_no} {pf.current_train.name}
                     </div>
                     <div className="text-[10px] text-slate-400 mt-0.5 flex justify-between">
@@ -525,23 +525,23 @@ export default function ManmadJunctionFocus() {
       </div>
 
       {/* 4.5 DYNAMIC PLATFORM ASSIGNMENT & OPERATIONAL REASONING ENGINE */}
-      <div className="bg-slate-900/90 border border-cyan-500/40 rounded-xl p-5 shadow-2xl relative">
+      <div className="pro-card rounded-xl p-5 shadow-2xl relative border border-sky-500/30">
         <div className="flex flex-wrap items-center justify-between gap-3 mb-4 pb-3 border-b border-slate-800">
           <div className="flex items-center gap-2">
-            <div className="p-2 rounded-lg bg-cyan-500/10 text-cyan-400 border border-cyan-500/30">
-              <Sparkles className="w-5 h-5 animate-pulse" />
+            <div className="p-2 rounded-lg bg-sky-500/10 text-sky-400 border border-sky-500/25">
+              <Sparkles className="w-5 h-5" />
             </div>
             <div>
               <div className="flex items-center gap-2">
                 <h2 className="text-lg font-bold text-white uppercase tracking-wider">
                   Dynamic Platform Assignment & Operational Reasoning Engine
                 </h2>
-                <span className="px-2 py-0.5 rounded text-xs font-mono font-bold bg-cyan-500/20 text-cyan-300 border border-cyan-500/40">
+                <span className="px-2 py-0.5 rounded text-xs font-mono font-bold bg-sky-500/15 text-sky-300 border border-sky-500/30">
                   LIVE MMR ALLOCATIONS
                 </span>
               </div>
               <p className="text-xs text-slate-400">
-                Real-time berthing optimization answering: <span className="text-cyan-300 italic">"Which train is coming to which platform and with what technical reason?"</span>
+                Real-time berthing optimization answering: <span className="text-sky-300 italic">"Which train is coming to which platform and with what technical reason?"</span>
               </p>
             </div>
           </div>
@@ -551,7 +551,7 @@ export default function ManmadJunctionFocus() {
             <button
               onClick={() => handleSimulatePfScenario('pf1_blocked')}
               disabled={isSimulatingPf}
-              className="px-3 py-1.5 rounded-lg bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 border border-amber-500/40 text-xs font-mono font-bold flex items-center gap-1.5 transition"
+              className="px-3 py-1.5 rounded-lg bg-amber-500/10 hover:bg-amber-500/20 text-amber-300 border border-amber-500/30 text-xs font-mono font-bold flex items-center gap-1.5 transition cursor-pointer"
               title="Simulate Track Circuit Failure on Down Main PF 1 and reroute Rajdhani 22222 to PF 3 Loop"
             >
               <AlertTriangle className="w-3.5 h-3.5 text-amber-400" />
@@ -560,7 +560,7 @@ export default function ManmadJunctionFocus() {
             <button
               onClick={() => handleSimulatePfScenario('reset')}
               disabled={isSimulatingPf}
-              className="px-3 py-1.5 rounded-lg bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-300 border border-emerald-500/40 text-xs font-mono font-bold flex items-center gap-1.5 transition"
+              className="px-3 py-1.5 rounded-lg bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-xs font-mono font-bold flex items-center gap-1.5 transition cursor-pointer"
             >
               <RefreshCw className={`w-3.5 h-3.5 ${isSimulatingPf ? 'animate-spin' : ''}`} />
               <span>Reset Standard Platforms</span>
@@ -574,7 +574,7 @@ export default function ManmadJunctionFocus() {
               <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
               <span>{platformActionMsg}</span>
             </div>
-            <button onClick={() => setPlatformActionMsg(null)} className="text-slate-400 hover:text-white text-xs">✕</button>
+            <button onClick={() => setPlatformActionMsg(null)} className="text-slate-400 hover:text-white text-xs cursor-pointer">✕</button>
           </div>
         )}
 
@@ -582,15 +582,14 @@ export default function ManmadJunctionFocus() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 mb-6">
           {dynamicAssignments.map((item) => {
             const isExpanded = expandedTrainNo === item.train_no;
-            const isSpecialRake = item.train_type === 'FREIGHT' || item.train_type === 'PREMIUM_EXP';
 
             return (
               <div
                 key={item.train_no}
                 className={`p-4 rounded-xl border transition flex flex-col justify-between ${
                   isExpanded 
-                    ? 'bg-slate-950 border-cyan-500 shadow-[0_0_20px_rgba(6,182,212,0.15)] ring-1 ring-cyan-500/50' 
-                    : 'bg-slate-950/70 border-slate-800 hover:border-slate-700'
+                    ? 'bg-[#0b0f19] border-sky-500 shadow-md ring-1 ring-sky-500/30' 
+                    : 'bg-[#0b0f19]/80 border-slate-800/90 hover:border-slate-700'
                 }`}
               >
                 <div>
@@ -600,12 +599,12 @@ export default function ManmadJunctionFocus() {
                       <div className="flex items-center gap-1.5 mb-1">
                         <span className={`px-2 py-0.5 rounded text-[10px] font-mono font-bold uppercase ${
                           item.priority.includes('P1') 
-                            ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-500/40' 
+                            ? 'bg-sky-500/15 text-sky-300 border border-sky-500/30' 
                             : item.priority.includes('P2')
-                            ? 'bg-blue-500/20 text-blue-300 border border-blue-500/30'
+                            ? 'bg-blue-500/15 text-blue-300 border border-blue-500/25'
                             : item.priority.includes('P3')
-                            ? 'bg-amber-500/20 text-amber-300 border border-amber-500/30'
-                            : 'bg-purple-500/20 text-purple-300 border border-purple-500/30'
+                            ? 'bg-amber-500/15 text-amber-300 border border-amber-500/25'
+                            : 'bg-purple-500/15 text-purple-300 border border-purple-500/25'
                         }`}>
                           {item.priority}
                         </span>
@@ -622,7 +621,7 @@ export default function ManmadJunctionFocus() {
                     </div>
 
                     <div className="text-right">
-                      <div className="px-2.5 py-1 rounded-lg bg-cyan-600/30 border border-cyan-400 text-cyan-200 font-mono font-extrabold text-xs shadow-sm">
+                      <div className="px-2.5 py-1 rounded-lg bg-sky-600/20 border border-sky-500/40 text-sky-200 font-mono font-extrabold text-xs shadow-sm">
                         PF {item.assigned_platform}
                       </div>
                       <span className="text-[10px] font-mono text-slate-400 block mt-0.5">
@@ -644,8 +643,8 @@ export default function ManmadJunctionFocus() {
                   </div>
 
                   {/* Primary Reason Callout */}
-                  <div className="p-2 rounded bg-cyan-950/20 border border-cyan-500/30 text-xs text-cyan-200/90 leading-relaxed mb-3">
-                    <strong className="text-cyan-300 block text-[10px] font-mono uppercase mb-0.5">
+                  <div className="p-2.5 rounded bg-sky-950/20 border border-sky-500/25 text-xs text-sky-200/90 leading-relaxed mb-3">
+                    <strong className="text-sky-300 block text-[10px] font-mono uppercase mb-0.5">
                       Operational Assignment Reason:
                     </strong>
                     {item.primary_reason}
@@ -656,10 +655,10 @@ export default function ManmadJunctionFocus() {
                 <div>
                   <button
                     onClick={() => setExpandedTrainNo(isExpanded ? null : item.train_no)}
-                    className="w-full py-1.5 px-2 rounded bg-slate-900 hover:bg-slate-800 border border-slate-800 text-[11px] font-mono text-slate-300 hover:text-white flex items-center justify-between transition"
+                    className="w-full py-1.5 px-2 rounded bg-slate-900 hover:bg-slate-850 border border-slate-800 text-[11px] font-mono text-slate-300 hover:text-white flex items-center justify-between transition cursor-pointer"
                   >
                     <span>{isExpanded ? 'Hide Technical Rationale' : 'View Full Operational Rationale'}</span>
-                    <ChevronRight className={`w-3.5 h-3.5 transition-transform ${isExpanded ? 'rotate-90 text-cyan-400' : ''}`} />
+                    <ChevronRight className={`w-3.5 h-3.5 transition-transform ${isExpanded ? 'rotate-90 text-sky-400' : ''}`} />
                   </button>
 
                   {/* Expandable Technical Rationale Breakdown */}
@@ -702,9 +701,9 @@ export default function ManmadJunctionFocus() {
         </div>
 
         {/* Quick Manual Reassignment Console */}
-        <div className="p-4 rounded-xl bg-slate-950 border border-slate-800">
+        <div className="p-4 rounded-xl bg-[#0b0f19] border border-slate-800">
           <div className="flex items-center gap-2 mb-2">
-            <Sliders className="w-4 h-4 text-cyan-400" />
+            <Sliders className="w-4 h-4 text-sky-400" />
             <h4 className="text-xs font-bold font-mono text-slate-200 uppercase tracking-wider">
               Dynamic Platform Reassignment Console (Section Controller)
             </h4>
@@ -715,7 +714,7 @@ export default function ManmadJunctionFocus() {
               <select
                 value={reassignTrainNo}
                 onChange={(e) => setReassignTrainNo(e.target.value)}
-                className="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-xs font-mono text-white focus:outline-none focus:border-cyan-500"
+                className="w-full bg-slate-900 border border-slate-700/80 rounded-lg p-2 text-xs font-mono text-white focus:outline-none focus:border-sky-500"
               >
                 {dynamicAssignments.map(t => (
                   <option key={t.train_no} value={t.train_no}>
@@ -730,7 +729,7 @@ export default function ManmadJunctionFocus() {
               <select
                 value={reassignTargetPf}
                 onChange={(e) => setReassignTargetPf(e.target.value)}
-                className="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-xs font-mono text-white focus:outline-none focus:border-cyan-500"
+                className="w-full bg-slate-900 border border-slate-700/80 rounded-lg p-2 text-xs font-mono text-white focus:outline-none focus:border-sky-500"
               >
                 <option value={1}>Platform 1 (650m - Down Main)</option>
                 <option value={2}>Platform 2 (650m - Up Main)</option>
@@ -748,7 +747,7 @@ export default function ManmadJunctionFocus() {
                 placeholder="e.g., Track maintenance on PF 1..."
                 value={reassignCustomReason}
                 onChange={(e) => setReassignCustomReason(e.target.value)}
-                className="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-xs font-mono text-white focus:outline-none focus:border-cyan-500"
+                className="w-full bg-slate-900 border border-slate-700/80 rounded-lg p-2 text-xs font-mono text-white focus:outline-none focus:border-sky-500"
               />
             </div>
 
@@ -756,7 +755,7 @@ export default function ManmadJunctionFocus() {
               <button
                 type="submit"
                 disabled={isReassigning}
-                className="w-full py-2 px-3 rounded-lg bg-cyan-600 hover:bg-cyan-500 text-white font-mono text-xs font-bold transition flex items-center justify-center gap-1.5"
+                className="w-full py-2 px-3 rounded-lg bg-sky-600 hover:bg-sky-500 text-white font-mono text-xs font-bold transition flex items-center justify-center gap-1.5 cursor-pointer shadow-sm"
               >
                 <Send className="w-3.5 h-3.5" />
                 <span>Validate & Reassign</span>
@@ -768,10 +767,10 @@ export default function ManmadJunctionFocus() {
 
       {/* 5. CENTERPIECE: TWO-TRAIN CONFLICT RESOLUTION ENGINE */}
       {activeConflict && (
-        <div className="bg-slate-900/90 border-2 border-rose-500/40 rounded-xl p-5 shadow-2xl relative">
+        <div className="pro-card rounded-xl p-5 shadow-2xl relative border border-rose-500/35">
           <div className="flex flex-wrap items-center justify-between gap-3 mb-4 pb-3 border-b border-slate-800">
             <div className="flex items-center gap-2">
-              <div className="p-2 rounded-lg bg-rose-500/10 text-rose-400 border border-rose-500/30">
+              <div className="p-2 rounded-lg bg-rose-500/10 text-rose-400 border border-rose-500/25">
                 <AlertOctagon className="w-5 h-5 animate-pulse" />
               </div>
               <div>
@@ -779,7 +778,7 @@ export default function ManmadJunctionFocus() {
                   <h2 className="text-lg font-bold text-white uppercase tracking-wider">
                     Centerpiece: Two-Train Interlocking Conflict Resolution Engine
                   </h2>
-                  <span className="px-2 py-0.5 rounded text-xs font-mono font-bold bg-rose-500/20 text-rose-300 border border-rose-500/40">
+                  <span className="px-2 py-0.5 rounded text-xs font-mono font-bold bg-rose-500/15 text-rose-300 border border-rose-500/30">
                     {activeConflict.id}
                   </span>
                 </div>
@@ -791,7 +790,7 @@ export default function ManmadJunctionFocus() {
 
             {/* Emergency Badges if Active */}
             {activeConflict.is_emergency && (
-              <div className="px-3 py-1 rounded bg-rose-600/30 text-rose-200 border border-rose-500 text-xs font-mono font-bold flex items-center gap-1.5 animate-bounce">
+              <div className="px-3 py-1 rounded bg-rose-600/20 text-rose-200 border border-rose-500/50 text-xs font-mono font-bold flex items-center gap-1.5 animate-bounce">
                 <AlertTriangle className="w-4 h-4 text-rose-400" />
                 <span>{activeConflict.emergency_type || 'ACTIVE EMERGENCY'}</span>
               </div>
@@ -801,9 +800,9 @@ export default function ManmadJunctionFocus() {
           {/* Both Contending Trains Overview */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-6">
             {/* Train A (Primary) */}
-            <div className="p-4 rounded-xl bg-slate-950 border border-cyan-500/40 relative">
+            <div className="p-4 rounded-xl bg-[#0b0f19] border border-sky-500/30 relative">
               <div className="flex items-center justify-between mb-2">
-                <span className="px-2 py-0.5 rounded text-xs font-mono font-bold bg-cyan-500/20 text-cyan-300 border border-cyan-500/30">
+                <span className="px-2 py-0.5 rounded text-xs font-mono font-bold bg-sky-500/15 text-sky-300 border border-sky-500/30">
                   TRAIN A (PREMIUM FLAGSHIP)
                 </span>
                 <span className="text-xs font-mono text-emerald-400 font-bold">
@@ -820,7 +819,7 @@ export default function ManmadJunctionFocus() {
               <div className="mt-3 grid grid-cols-2 gap-2 text-xs font-mono">
                 <div className="p-2 rounded bg-slate-900 border border-slate-800">
                   <span className="text-slate-500 block text-[10px]">Priority Class</span>
-                  <span className="text-cyan-400 font-bold">{activeConflict.train_primary.priority_class}</span>
+                  <span className="text-sky-400 font-bold">{activeConflict.train_primary.priority_class}</span>
                 </div>
                 <div className="p-2 rounded bg-slate-900 border border-slate-800">
                   <span className="text-slate-500 block text-[10px]">Current Delay</span>
@@ -838,9 +837,9 @@ export default function ManmadJunctionFocus() {
             </div>
 
             {/* Train B (Secondary) */}
-            <div className="p-4 rounded-xl bg-slate-950 border border-amber-500/40 relative">
+            <div className="p-4 rounded-xl bg-[#0b0f19] border border-amber-500/30 relative">
               <div className="flex items-center justify-between mb-2">
-                <span className="px-2 py-0.5 rounded text-xs font-mono font-bold bg-amber-500/20 text-amber-300 border border-amber-500/30">
+                <span className="px-2 py-0.5 rounded text-xs font-mono font-bold bg-amber-500/15 text-amber-300 border border-amber-500/30">
                   TRAIN B (CONVERGING CORRIDOR)
                 </span>
                 <span className="text-xs font-mono text-slate-400">
@@ -879,7 +878,7 @@ export default function ManmadJunctionFocus() {
           <div className="mb-6 overflow-x-auto">
             <div className="mb-2 flex items-center justify-between">
               <h4 className="text-sm font-bold text-slate-200 uppercase tracking-wider flex items-center gap-2">
-                <Sliders className="w-4 h-4 text-cyan-400" />
+                <Sliders className="w-4 h-4 text-sky-400" />
                 6-Factor Side-by-Side Priority Matrix
               </h4>
               <span className="text-xs font-mono text-slate-500">
@@ -887,13 +886,13 @@ export default function ManmadJunctionFocus() {
               </span>
             </div>
 
-            <table className="w-full text-xs text-left border-collapse border border-slate-800 bg-slate-950/70 font-mono">
+            <table className="w-full text-xs text-left border-collapse border border-slate-800 bg-[#0b0f19] font-mono rounded-lg overflow-hidden">
               <thead>
-                <tr className="bg-slate-900 border-b border-slate-800 text-slate-300">
-                  <th className="p-3 w-1/4">Evaluation Factor & Weight</th>
-                  <th className="p-3 w-1/4 text-cyan-400">Train A (22222 Rajdhani)</th>
-                  <th className="p-3 w-1/4 text-amber-400">Train B (11078 Jhelum)</th>
-                  <th className="p-3 w-1/4 text-emerald-400">Engine Recommendation</th>
+                <tr className="bg-slate-900/90 border-b border-slate-800 text-slate-300">
+                  <th className="p-3 w-1/4 font-semibold">Evaluation Factor & Weight</th>
+                  <th className="p-3 w-1/4 text-sky-400 font-semibold">Train A (22222 Rajdhani)</th>
+                  <th className="p-3 w-1/4 text-amber-400 font-semibold">Train B (11078 Jhelum)</th>
+                  <th className="p-3 w-1/4 text-emerald-400 font-semibold">Engine Recommendation</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-800/60">
@@ -903,10 +902,10 @@ export default function ManmadJunctionFocus() {
                       <div>{row.factor}</div>
                       <div className="text-[10px] text-slate-500 mt-0.5">Impact Weight: {row.weight}</div>
                     </td>
-                    <td className="p-3 text-slate-300 bg-cyan-950/10">
+                    <td className="p-3 text-slate-300 bg-sky-950/15">
                       {row.train_a_val}
                     </td>
-                    <td className="p-3 text-slate-300 bg-amber-950/10">
+                    <td className="p-3 text-slate-300 bg-amber-950/15">
                       {row.train_b_val}
                     </td>
                     <td className="p-3">
@@ -924,7 +923,7 @@ export default function ManmadJunctionFocus() {
           </div>
 
           {/* PRECEDENCE DECISION CALLOUT */}
-          <div className="p-4 rounded-xl bg-gradient-to-r from-emerald-950/40 via-slate-900 to-slate-950 border border-emerald-500/40 mb-6">
+          <div className="p-4 rounded-xl bg-gradient-to-r from-emerald-950/30 via-slate-900/90 to-slate-950 border border-emerald-500/30 mb-6">
             <div className="flex flex-wrap items-center justify-between gap-3">
               <div>
                 <span className="px-2.5 py-0.5 rounded text-[11px] font-mono font-bold uppercase bg-emerald-500/20 text-emerald-300 border border-emerald-500/40">
@@ -956,8 +955,8 @@ export default function ManmadJunctionFocus() {
           {/* DUAL DISTINCT EXPLAINABILITY (MANDATORY: DO NOT MERGE) */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-6">
             {/* Explainability 1: Why did it happen? */}
-            <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 relative">
-              <div className="flex items-center gap-2 mb-2 text-cyan-400">
+            <div className="p-4 rounded-xl bg-[#0b0f19] border border-slate-800 relative">
+              <div className="flex items-center gap-2 mb-2 text-sky-400">
                 <AlertCircleIcon className="w-4 h-4" />
                 <h4 className="text-sm font-bold uppercase tracking-wider">
                   1. Why Did This Conflict Happen?
@@ -972,7 +971,7 @@ export default function ManmadJunctionFocus() {
             </div>
 
             {/* Explainability 2: Why was this train given precedence? */}
-            <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 relative">
+            <div className="p-4 rounded-xl bg-[#0b0f19] border border-slate-800 relative">
               <div className="flex items-center gap-2 mb-2 text-emerald-400">
                 <Sparkles className="w-4 h-4" />
                 <h4 className="text-sm font-bold uppercase tracking-wider">
@@ -989,15 +988,15 @@ export default function ManmadJunctionFocus() {
           </div>
 
           {/* MANUAL SECTION CONTROLLER OVERRIDE PANEL */}
-          <div className="p-4 rounded-xl bg-slate-950 border border-cyan-500/30">
+          <div className="p-4 rounded-xl bg-[#0b0f19] border border-slate-800">
             <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
               <div className="flex items-center gap-2">
-                <Sliders className="w-4 h-4 text-cyan-400" />
+                <Sliders className="w-4 h-4 text-sky-400" />
                 <h4 className="text-sm font-bold text-white uppercase tracking-wider">
                   {t('mmr.manualOverrideTitle')}
                 </h4>
               </div>
-              <span className="text-[11px] font-mono text-cyan-400 bg-cyan-950/30 px-2 py-0.5 rounded border border-cyan-500/20">
+              <span className="text-[11px] font-mono text-sky-400 bg-sky-950/30 px-2 py-0.5 rounded border border-sky-500/20">
                 Operator: SC-BHUSAWAL-04 (Authorized)
               </span>
             </div>
@@ -1010,7 +1009,7 @@ export default function ManmadJunctionFocus() {
                 <select
                   value={selectedFavoredTrain}
                   onChange={(e) => setSelectedFavoredTrain(e.target.value)}
-                  className="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-xs font-mono text-white focus:outline-none focus:border-cyan-500"
+                  className="w-full bg-slate-900 border border-slate-700/80 rounded-lg p-2 text-xs font-mono text-white focus:outline-none focus:border-sky-500"
                 >
                   <option value="">Default Recommendation ({activeConflict.precedence_decision.favored_train})</option>
                   <option value={activeConflict.train_secondary.train_no}>
@@ -1029,7 +1028,7 @@ export default function ManmadJunctionFocus() {
                 <select
                   value={overrideReason}
                   onChange={(e) => setOverrideReason(e.target.value)}
-                  className="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-xs font-mono text-white focus:outline-none focus:border-cyan-500"
+                  className="w-full bg-slate-900 border border-slate-700/80 rounded-lg p-2 text-xs font-mono text-white focus:outline-none focus:border-sky-500"
                 >
                   <option value="VIP Movement">VIP Movement (व्ही.आय.पी. हालचाल)</option>
                   <option value="Medical Emergency">Medical Emergency (वैद्यकीय आणीबाणी)</option>
@@ -1046,12 +1045,12 @@ export default function ManmadJunctionFocus() {
                   placeholder={t('mmr.controllerNotesPlaceholder')}
                   value={controllerNotes}
                   onChange={(e) => setControllerNotes(e.target.value)}
-                  className="flex-1 bg-slate-900 border border-slate-700 rounded-lg p-2 text-xs font-mono text-white focus:outline-none focus:border-cyan-500"
+                  className="flex-1 bg-slate-900 border border-slate-700/80 rounded-lg p-2 text-xs font-mono text-white focus:outline-none focus:border-sky-500"
                 />
                 <button
                   type="submit"
                   disabled={isSubmittingOverride}
-                  className="px-4 py-2 rounded-lg bg-cyan-600 hover:bg-cyan-500 text-white font-mono text-xs font-bold transition flex items-center gap-1.5 shrink-0 cursor-pointer"
+                  className="px-4 py-2 rounded-lg bg-sky-600 hover:bg-sky-500 text-white font-mono text-xs font-bold transition flex items-center gap-1.5 shrink-0 cursor-pointer shadow-sm"
                 >
                   <Send className="w-3.5 h-3.5" />
                   <span>{isSubmittingOverride ? t('mmr.submittingOverride') : t('mmr.commitDecision')}</span>
@@ -1069,7 +1068,7 @@ export default function ManmadJunctionFocus() {
       )}
 
       {/* 6. EMERGENCY SCENARIO SANDBOX */}
-      <div className="bg-slate-900/80 border border-slate-800 rounded-xl p-5 shadow-xl">
+      <div className="pro-card rounded-xl p-5 shadow-xl">
         <div className="flex flex-wrap items-center justify-between gap-3 mb-4 pb-3 border-b border-slate-800">
           <div>
             <h3 className="text-base font-bold text-slate-100 uppercase tracking-wider flex items-center gap-2">
@@ -1088,7 +1087,7 @@ export default function ManmadJunctionFocus() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
           <button
             onClick={() => handleTriggerEmergency('medical_emergency')}
-            className="p-3 rounded-lg bg-slate-950 border border-rose-500/40 hover:border-rose-400 text-left transition group"
+            className="p-3 rounded-lg bg-[#0b0f19] border border-rose-500/30 hover:border-rose-400 text-left transition group cursor-pointer"
           >
             <div className="flex items-center gap-2 text-rose-400 text-xs font-bold font-mono mb-1">
               <Ambulance className="w-4 h-4" />
@@ -1101,7 +1100,7 @@ export default function ManmadJunctionFocus() {
 
           <button
             onClick={() => handleTriggerEmergency('track_obstruction')}
-            className="p-3 rounded-lg bg-slate-950 border border-amber-500/40 hover:border-amber-400 text-left transition group"
+            className="p-3 rounded-lg bg-[#0b0f19] border border-amber-500/30 hover:border-amber-400 text-left transition group cursor-pointer"
           >
             <div className="flex items-center gap-2 text-amber-400 text-xs font-bold font-mono mb-1">
               <Ban className="w-4 h-4" />
@@ -1114,9 +1113,9 @@ export default function ManmadJunctionFocus() {
 
           <button
             onClick={() => handleTriggerEmergency('engineering_block')}
-            className="p-3 rounded-lg bg-slate-950 border border-blue-500/40 hover:border-blue-400 text-left transition group"
+            className="p-3 rounded-lg bg-[#0b0f19] border border-sky-500/30 hover:border-sky-400 text-left transition group cursor-pointer"
           >
-            <div className="flex items-center gap-2 text-blue-400 text-xs font-bold font-mono mb-1">
+            <div className="flex items-center gap-2 text-sky-400 text-xs font-bold font-mono mb-1">
               <Wrench className="w-4 h-4" />
               <span>3. Planned Engineering Block</span>
             </div>
@@ -1127,7 +1126,7 @@ export default function ManmadJunctionFocus() {
 
           <button
             onClick={() => handleTriggerEmergency('clear')}
-            className="p-3 rounded-lg bg-slate-950 border border-emerald-500/40 hover:border-emerald-400 text-left transition group"
+            className="p-3 rounded-lg bg-[#0b0f19] border border-emerald-500/30 hover:border-emerald-400 text-left transition group cursor-pointer"
           >
             <div className="flex items-center gap-2 text-emerald-400 text-xs font-bold font-mono mb-1">
               <RefreshCw className="w-4 h-4" />
@@ -1142,10 +1141,10 @@ export default function ManmadJunctionFocus() {
 
       {/* 7. CONTROLLER AUDIT LOGS */}
       {auditLogs.length > 0 && (
-        <div className="bg-slate-900/80 border border-slate-800 rounded-xl p-5 shadow-xl">
+        <div className="pro-card rounded-xl p-5 shadow-xl">
           <div className="flex items-center justify-between mb-3 pb-2 border-b border-slate-800">
             <h3 className="text-sm font-bold text-slate-100 uppercase tracking-wider flex items-center gap-2">
-              <History className="w-4 h-4 text-cyan-400" />
+              <History className="w-4 h-4 text-sky-400" />
               {t('mmr.auditTitle')}
             </h3>
             <span className="text-xs font-mono text-slate-400">
@@ -1154,8 +1153,8 @@ export default function ManmadJunctionFocus() {
           </div>
 
           <div className="overflow-x-auto">
-            <table className="w-full text-xs text-left font-mono bg-slate-950 rounded-lg overflow-hidden">
-              <thead className="bg-slate-900 text-slate-400 border-b border-slate-800">
+            <table className="w-full text-xs text-left font-mono bg-[#0b0f19] rounded-lg overflow-hidden border border-slate-800">
+              <thead className="bg-slate-900/90 text-slate-400 border-b border-slate-800">
                 <tr>
                   <th className="p-2.5">Log ID</th>
                   <th className="p-2.5">Timestamp (UTC)</th>
@@ -1169,7 +1168,7 @@ export default function ManmadJunctionFocus() {
               <tbody className="divide-y divide-slate-800/60">
                 {auditLogs.map((log) => (
                   <tr key={log.log_id} className="hover:bg-slate-900/40">
-                    <td className="p-2.5 text-cyan-400 font-bold">{log.log_id}</td>
+                    <td className="p-2.5 text-sky-400 font-bold">{log.log_id}</td>
                     <td className="p-2.5 text-slate-400">{log.timestamp}</td>
                     <td className="p-2.5 text-slate-300">{log.controller_id}</td>
                     <td className="p-2.5 text-slate-300">{log.conflict_id}</td>
@@ -1193,15 +1192,15 @@ export default function ManmadJunctionFocus() {
       )}
 
       {/* 8. TOMORROW'S SCHEDULED TIMETABLE FOR MANMAD JUNCTION */}
-      <div className="bg-slate-900/80 border border-slate-800 rounded-xl p-5 shadow-xl">
+      <div className="pro-card rounded-xl p-5 shadow-xl">
         <div className="flex flex-wrap items-center justify-between gap-3 mb-4 pb-3 border-b border-slate-800">
           <div>
             <div className="flex items-center gap-2">
               <h3 className="text-base font-bold text-slate-100 uppercase tracking-wider flex items-center gap-2">
-                <Calendar className="w-4 h-4 text-cyan-400" />
+                <Calendar className="w-4 h-4 text-sky-400" />
                 {t('mmr.timetableTitle')}
               </h3>
-              <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-slate-800 text-slate-300 border border-slate-700">
+              <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-slate-800/80 text-slate-300 border border-slate-700/80">
                 [Static Scheduled Timetable - Not ML]
               </span>
             </div>
@@ -1217,24 +1216,24 @@ export default function ManmadJunctionFocus() {
               placeholder={t('mmr.searchTrainPlaceholder')}
               value={timetableSearch}
               onChange={(e) => setTimetableSearch(e.target.value)}
-              className="bg-slate-950 border border-slate-800 rounded-lg px-2.5 py-1 text-xs font-mono text-slate-200 placeholder-slate-600 focus:outline-none focus:border-cyan-500"
+              className="bg-slate-950 border border-slate-800 rounded-lg px-2.5 py-1 text-xs font-mono text-slate-200 placeholder-slate-600 focus:outline-none focus:border-sky-500"
             />
             <div className="flex rounded-lg border border-slate-800 bg-slate-950 p-0.5 text-xs font-mono">
               <button
                 onClick={() => setTimetableFilter('ALL')}
-                className={`px-2 py-0.5 rounded cursor-pointer ${timetableFilter === 'ALL' ? 'bg-cyan-600 text-white font-bold' : 'text-slate-400'}`}
+                className={`px-2 py-0.5 rounded cursor-pointer transition ${timetableFilter === 'ALL' ? 'bg-sky-600 text-white font-semibold' : 'text-slate-400 hover:text-slate-200'}`}
               >
                 {t('mmr.allCorridorsFilter')}
               </button>
               <button
                 onClick={() => setTimetableFilter('P1')}
-                className={`px-2 py-0.5 rounded ${timetableFilter === 'P1' ? 'bg-cyan-600 text-white font-bold' : 'text-slate-400'}`}
+                className={`px-2 py-0.5 rounded cursor-pointer transition ${timetableFilter === 'P1' ? 'bg-sky-600 text-white font-semibold' : 'text-slate-400 hover:text-slate-200'}`}
               >
                 P1 (Raj/VB)
               </button>
               <button
                 onClick={() => setTimetableFilter('KPG')}
-                className={`px-2 py-0.5 rounded ${timetableFilter === 'KPG' ? 'bg-cyan-600 text-white font-bold' : 'text-slate-400'}`}
+                className={`px-2 py-0.5 rounded cursor-pointer transition ${timetableFilter === 'KPG' ? 'bg-sky-600 text-white font-semibold' : 'text-slate-400 hover:text-slate-200'}`}
               >
                 KPG / Daund
               </button>
@@ -1243,8 +1242,8 @@ export default function ManmadJunctionFocus() {
         </div>
 
         <div className="overflow-x-auto">
-          <table className="w-full text-xs text-left font-mono bg-slate-950 rounded-lg overflow-hidden">
-            <thead className="bg-slate-900 text-slate-400 border-b border-slate-800">
+          <table className="w-full text-xs text-left font-mono bg-[#0b0f19] rounded-lg overflow-hidden border border-slate-800">
+            <thead className="bg-slate-900/90 text-slate-400 border-b border-slate-800">
               <tr>
                 <th className="p-2.5">Train No.</th>
                 <th className="p-2.5">Train Name</th>
@@ -1260,18 +1259,18 @@ export default function ManmadJunctionFocus() {
             <tbody className="divide-y divide-slate-800/60">
               {filteredTimetable.map((t) => (
                 <tr key={t.train_no} className="hover:bg-slate-900/40">
-                  <td className="p-2.5 text-cyan-400 font-bold">{t.train_no}</td>
+                  <td className="p-2.5 text-sky-400 font-bold">{t.train_no}</td>
                   <td className="p-2.5 text-white font-semibold">{t.train_name}</td>
                   <td className="p-2.5 text-slate-400 truncate max-w-xs">{t.origin} → {t.destination}</td>
                   <td className="p-2.5">
                     <span
                       className={`px-2 py-0.5 rounded text-[10px] font-bold ${
                         t.priority_class.includes('P1')
-                          ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-500/40'
+                          ? 'bg-sky-500/15 text-sky-300 border border-sky-500/30'
                           : t.priority_class.includes('P2')
-                          ? 'bg-blue-500/20 text-blue-300 border border-blue-500/30'
+                          ? 'bg-blue-500/15 text-blue-300 border border-blue-500/25'
                           : t.priority_class.includes('P3')
-                          ? 'bg-amber-500/20 text-amber-300 border border-amber-500/30'
+                          ? 'bg-amber-500/15 text-amber-300 border border-amber-500/25'
                           : 'bg-slate-800 text-slate-400'
                       }`}
                     >

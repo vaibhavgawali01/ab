@@ -1436,11 +1436,11 @@ export default function ManmadRegionalMap({ onOpenStationSchematic }) {
   }, [stationCorridorFilter, stationsData]);
 
   return (
-    <div className="bg-slate-900/90 border border-slate-800 rounded-xl p-4 shadow-xl relative transition-all duration-300">
+    <div className="pro-card rounded-xl p-4 shadow-xl relative transition-all duration-300">
       {/* Header & Controls Bar */}
       <div className="flex flex-wrap items-center justify-between gap-3 mb-3 pb-3 border-b border-slate-800">
         <div className="flex items-center gap-2.5">
-          <div className="p-2 rounded-lg bg-cyan-500/10 text-cyan-400 border border-cyan-500/30">
+          <div className="p-2 rounded-lg bg-sky-500/10 text-sky-400 border border-sky-500/25">
             <Compass className="w-5 h-5" />
           </div>
           <div>
@@ -1448,7 +1448,7 @@ export default function ManmadRegionalMap({ onOpenStationSchematic }) {
               <h4 className="text-sm font-bold text-slate-100 uppercase tracking-wider">
                 {t('map.title')}
               </h4>
-              <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-cyan-500/20 text-cyan-300 border border-cyan-500/40">
+              <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-sky-500/15 text-sky-300 border border-sky-500/30">
                 ZOOM LEVEL: {currentZoom}x
               </span>
             </div>
@@ -1468,7 +1468,7 @@ export default function ManmadRegionalMap({ onOpenStationSchematic }) {
             <button
               onClick={() => setBaseMapType('google-roadmap')}
               className={`px-2 py-0.5 rounded text-[11px] font-semibold transition cursor-pointer ${
-                baseMapType === 'google-roadmap' ? 'bg-cyan-600 text-white shadow-sm' : 'bg-slate-800 text-slate-300 hover:bg-slate-700'
+                baseMapType === 'google-roadmap' ? 'bg-sky-600 text-white shadow-sm' : 'bg-slate-900 text-slate-300 hover:bg-slate-800'
               }`}
             >
               {t('map.googleLive')}
@@ -1476,7 +1476,7 @@ export default function ManmadRegionalMap({ onOpenStationSchematic }) {
             <button
               onClick={() => setBaseMapType('google-hybrid')}
               className={`px-2 py-0.5 rounded text-[11px] font-semibold transition cursor-pointer ${
-                baseMapType === 'google-hybrid' ? 'bg-cyan-600 text-white shadow-sm' : 'bg-slate-800 text-slate-300 hover:bg-slate-700'
+                baseMapType === 'google-hybrid' ? 'bg-sky-600 text-white shadow-sm' : 'bg-slate-900 text-slate-300 hover:bg-slate-800'
               }`}
             >
               {t('map.googleSatellite')}
@@ -1484,7 +1484,7 @@ export default function ManmadRegionalMap({ onOpenStationSchematic }) {
             <button
               onClick={() => setBaseMapType('google-terrain')}
               className={`px-2 py-0.5 rounded text-[11px] font-semibold transition cursor-pointer ${
-                baseMapType === 'google-terrain' ? 'bg-cyan-600 text-white shadow-sm' : 'bg-slate-800 text-slate-300 hover:bg-slate-700'
+                baseMapType === 'google-terrain' ? 'bg-sky-600 text-white shadow-sm' : 'bg-slate-900 text-slate-300 hover:bg-slate-800'
               }`}
             >
               {t('map.googleTerrain')}
@@ -1492,7 +1492,7 @@ export default function ManmadRegionalMap({ onOpenStationSchematic }) {
             <button
               onClick={() => setBaseMapType('osm')}
               className={`px-2 py-0.5 rounded text-[11px] font-semibold transition cursor-pointer ${
-                baseMapType === 'osm' ? 'bg-cyan-600 text-white shadow-sm' : 'bg-slate-800 text-slate-300 hover:bg-slate-700'
+                baseMapType === 'osm' ? 'bg-sky-600 text-white shadow-sm' : 'bg-slate-900 text-slate-300 hover:bg-slate-800'
               }`}
             >
               {t('map.osm')}
@@ -1504,7 +1504,7 @@ export default function ManmadRegionalMap({ onOpenStationSchematic }) {
             href="https://www.google.com/maps/@20.2498,74.4384,15z"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-700 text-cyan-300 hover:text-white border border-slate-700 text-xs font-mono font-semibold flex items-center gap-1.5 transition"
+            className="px-2.5 py-1 rounded bg-slate-900 hover:bg-slate-800 text-sky-300 hover:text-white border border-slate-800 text-xs font-mono font-semibold flex items-center gap-1.5 transition"
             title="Open MMR in Google Maps"
           >
             <span>📍</span>
@@ -1512,36 +1512,36 @@ export default function ManmadRegionalMap({ onOpenStationSchematic }) {
           </a>
 
           <span className="text-xs font-mono text-slate-400 mr-1 ml-1 flex items-center gap-1">
-            <SlidersHorizontal className="w-3 h-3 text-cyan-400" /> {t('map.zoomView')}
+            <SlidersHorizontal className="w-3 h-3 text-sky-400" /> {t('map.zoomView')}
           </span>
           <button
             onClick={() => setZoomLevel(14.5, [20.2500, 74.4385], 'yard')}
-            className={`px-2.5 py-1 rounded text-xs font-mono font-semibold transition ${
-              activePreset === 'yard' ? 'bg-cyan-600 text-white' : 'bg-slate-800 text-slate-300 hover:bg-slate-700'
+            className={`px-2.5 py-1 rounded text-xs font-mono font-semibold transition cursor-pointer ${
+              activePreset === 'yard' ? 'bg-sky-600 text-white shadow-sm' : 'bg-slate-900 text-slate-300 hover:bg-slate-800 border border-slate-800'
             }`}
           >
             {t('map.zoomYard')}
           </button>
           <button
             onClick={() => setZoomLevel(10, [20.1500, 74.4500], 'section')}
-            className={`px-2.5 py-1 rounded text-xs font-mono font-semibold transition ${
-              activePreset === 'section' ? 'bg-cyan-600 text-white' : 'bg-slate-800 text-slate-300 hover:bg-slate-700'
+            className={`px-2.5 py-1 rounded text-xs font-mono font-semibold transition cursor-pointer ${
+              activePreset === 'section' ? 'bg-sky-600 text-white shadow-sm' : 'bg-slate-900 text-slate-300 hover:bg-slate-800 border border-slate-800'
             }`}
           >
             {t('map.zoomSection')}
           </button>
           <button
             onClick={() => setZoomLevel(8, [20.3000, 74.7000], 'division')}
-            className={`px-2.5 py-1 rounded text-xs font-mono font-semibold transition ${
-              activePreset === 'division' ? 'bg-cyan-600 text-white' : 'bg-slate-800 text-slate-300 hover:bg-slate-700'
+            className={`px-2.5 py-1 rounded text-xs font-mono font-semibold transition cursor-pointer ${
+              activePreset === 'division' ? 'bg-sky-600 text-white shadow-sm' : 'bg-slate-900 text-slate-300 hover:bg-slate-800 border border-slate-800'
             }`}
           >
             {t('map.zoomDivision')}
           </button>
           <button
             onClick={() => setZoomLevel(6.5, [19.8000, 74.5000], 'regional')}
-            className={`px-2.5 py-1 rounded text-xs font-mono font-semibold transition ${
-              activePreset === 'regional' ? 'bg-cyan-600 text-white' : 'bg-slate-800 text-slate-300 hover:bg-slate-700'
+            className={`px-2.5 py-1 rounded text-xs font-mono font-semibold transition cursor-pointer ${
+              activePreset === 'regional' ? 'bg-sky-600 text-white shadow-sm' : 'bg-slate-900 text-slate-300 hover:bg-slate-800 border border-slate-800'
             }`}
           >
             {t('map.zoomRegional')}
@@ -1551,7 +1551,7 @@ export default function ManmadRegionalMap({ onOpenStationSchematic }) {
           <button
             onClick={() => setIsExpanded(!isExpanded)}
             title={isExpanded ? "Collapse Map Height" : "Expand Map Height"}
-            className="p-1.5 rounded bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white border border-slate-700 transition ml-1"
+            className="p-1.5 rounded bg-slate-900 hover:bg-slate-800 text-slate-300 hover:text-white border border-slate-800 transition ml-1 cursor-pointer"
           >
             {isExpanded ? <Minimize2 className="w-3.5 h-3.5" /> : <Maximize2 className="w-3.5 h-3.5" />}
           </button>
@@ -1561,7 +1561,7 @@ export default function ManmadRegionalMap({ onOpenStationSchematic }) {
             <button
               onClick={onOpenStationSchematic}
               title={t('map.clickToOpenSchematic')}
-              className="px-2.5 py-1 rounded bg-cyan-600 hover:bg-cyan-500 text-white text-xs font-mono font-bold flex items-center gap-1.5 shadow-[0_0_12px_rgba(6,182,212,0.4)] border border-cyan-400 transition ml-1 cursor-pointer"
+              className="px-2.5 py-1 rounded bg-sky-600 hover:bg-sky-500 text-white text-xs font-mono font-bold flex items-center gap-1.5 shadow-sm border border-sky-400/50 transition ml-1 cursor-pointer"
             >
               <span>⚡</span>
               <span>{t('map.openMmrSchematic')}</span>
@@ -1571,10 +1571,10 @@ export default function ManmadRegionalMap({ onOpenStationSchematic }) {
       </div>
 
       {/* Live Platform Berthing Status Bar */}
-      <div className="mb-3 p-2.5 rounded-lg bg-slate-950/90 border border-slate-800 flex flex-wrap items-center justify-between gap-2 text-xs font-mono">
+      <div className="mb-3 p-2.5 rounded-lg bg-[#0b0f19] border border-slate-800 flex flex-wrap items-center justify-between gap-2 text-xs font-mono">
         <div className="flex items-center gap-2 text-slate-300 font-bold">
           <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping inline-block" />
-          <span className="text-cyan-400">{t('map.platformLiveBerthing')}</span>
+          <span className="text-sky-400">{t('map.platformLiveBerthing')}</span>
         </div>
         <div className="flex flex-wrap items-center gap-2">
           {mmrPlatformsData.map((pf) => (
@@ -1587,7 +1587,7 @@ export default function ManmadRegionalMap({ onOpenStationSchematic }) {
               title={`Click to focus camera on Platform ${pf.pf} live location`}
               className={`px-2.5 py-1 rounded text-[11px] font-mono transition flex items-center gap-1.5 border cursor-pointer ${
                 pf.liveTrain
-                  ? 'bg-slate-900/90 border-cyan-500/50 text-cyan-300 hover:bg-slate-800 shadow-[0_0_10px_rgba(6,182,212,0.15)]'
+                  ? 'bg-slate-900/90 border-sky-500/50 text-sky-300 hover:bg-slate-800 shadow-sm'
                   : 'bg-slate-900/40 border-slate-800 text-slate-400 hover:bg-slate-800'
               }`}
             >
@@ -1610,7 +1610,7 @@ export default function ManmadRegionalMap({ onOpenStationSchematic }) {
             <button
               onClick={onOpenStationSchematic}
               title={t('map.clickToOpenSchematic')}
-              className="px-2.5 py-1 rounded bg-gradient-to-r from-cyan-600 to-sky-600 hover:from-cyan-500 hover:to-sky-500 text-white text-[11px] font-mono font-bold flex items-center gap-1.5 shadow-[0_0_10px_rgba(6,182,212,0.3)] border border-cyan-400 transition ml-auto cursor-pointer"
+              className="px-2.5 py-1 rounded bg-sky-600 hover:bg-sky-500 text-white text-[11px] font-mono font-bold flex items-center gap-1.5 shadow-sm border border-sky-400/50 transition ml-auto cursor-pointer"
             >
               <span>⚡</span>
               <span>{t('map.viewSchematicOverview')}</span>
@@ -1627,10 +1627,10 @@ export default function ManmadRegionalMap({ onOpenStationSchematic }) {
               type="checkbox"
               checked={showPlatforms}
               onChange={(e) => setShowPlatforms(e.target.checked)}
-              className="rounded bg-slate-800 border-slate-700 text-cyan-500 focus:ring-0"
+              className="rounded bg-slate-800 border-slate-700 text-sky-500 focus:ring-0"
             />
             <span className="flex items-center gap-1">
-              <Layers className="w-3.5 h-3.5 text-cyan-400" />
+              <Layers className="w-3.5 h-3.5 text-sky-400" />
               {t('map.filterPlatforms')}
             </span>
           </label>
@@ -1640,7 +1640,7 @@ export default function ManmadRegionalMap({ onOpenStationSchematic }) {
               type="checkbox"
               checked={showLiveTrains}
               onChange={(e) => setShowLiveTrains(e.target.checked)}
-              className="rounded bg-slate-800 border-slate-700 text-cyan-500 focus:ring-0"
+              className="rounded bg-slate-800 border-slate-700 text-sky-500 focus:ring-0"
             />
             <span className="flex items-center gap-1">
               <Train className="w-3.5 h-3.5 text-emerald-400" />
@@ -1653,10 +1653,10 @@ export default function ManmadRegionalMap({ onOpenStationSchematic }) {
               type="checkbox"
               checked={showStations}
               onChange={(e) => setShowStations(e.target.checked)}
-              className="rounded bg-slate-800 border-slate-700 text-cyan-500 focus:ring-0"
+              className="rounded bg-slate-800 border-slate-700 text-sky-500 focus:ring-0"
             />
             <span className="flex items-center gap-1">
-              <MapPin className="w-3.5 h-3.5 text-cyan-400" />
+              <MapPin className="w-3.5 h-3.5 text-sky-400" />
               {t('map.filterStations')} ({stationsData.length})
             </span>
           </label>
@@ -1679,10 +1679,10 @@ export default function ManmadRegionalMap({ onOpenStationSchematic }) {
               type="checkbox"
               checked={showApproaches}
               onChange={(e) => setShowApproaches(e.target.checked)}
-              className="rounded bg-slate-800 border-slate-700 text-cyan-500 focus:ring-0"
+              className="rounded bg-slate-800 border-slate-700 text-sky-500 focus:ring-0"
             />
             <span className="flex items-center gap-1">
-              <Navigation2 className="w-3.5 h-3.5 text-cyan-400" />
+              <Navigation2 className="w-3.5 h-3.5 text-sky-400" />
               {t('map.filterApproaches')}
             </span>
           </label>
@@ -1706,7 +1706,7 @@ export default function ManmadRegionalMap({ onOpenStationSchematic }) {
       </div>
 
       {/* Quick Clickable Station Jump Strip (Every Single Station 1-Click Interactive) */}
-      <div className="mb-3 p-2.5 rounded-lg bg-slate-950/90 border border-slate-800 text-xs font-mono">
+      <div className="mb-3 p-2.5 rounded-lg bg-[#0b0f19] border border-slate-800 text-xs font-mono">
         <div className="flex flex-wrap items-center justify-between gap-2 mb-2 pb-2 border-b border-slate-800/80">
           <div className="flex items-center gap-2 text-slate-300 font-bold">
             <MapPin className="w-3.5 h-3.5 text-sky-400" />
@@ -1806,14 +1806,14 @@ export default function ManmadRegionalMap({ onOpenStationSchematic }) {
 
         {/* Active Selected Train Telemetry Card Overlay */}
         {selectedTrain && (
-          <div className="absolute bottom-3 left-3 right-3 md:right-auto md:w-96 z-[1000] bg-slate-950/95 backdrop-blur-md p-3.5 rounded-xl border border-cyan-500/40 shadow-2xl font-mono text-xs text-white">
+          <div className="absolute bottom-3 left-3 right-3 md:right-auto md:w-96 z-[1000] bg-[#0a0e17]/95 backdrop-blur-md p-3.5 rounded-xl border border-sky-500/30 shadow-2xl font-mono text-xs text-white">
             <div className="flex items-center justify-between mb-1.5">
-              <span className="font-extrabold text-sm text-cyan-300 flex items-center gap-1.5">
+              <span className="font-extrabold text-sm text-sky-300 flex items-center gap-1.5">
                 🚆 {selectedTrain.id} - {selectedTrain.name}
               </span>
               <button
                 onClick={() => setSelectedTrain(null)}
-                className="text-slate-400 hover:text-white text-xs px-1.5 py-0.5 rounded bg-slate-800"
+                className="text-slate-400 hover:text-white text-xs px-1.5 py-0.5 rounded bg-slate-900 border border-slate-850 cursor-pointer"
               >
                 ✕ Close
               </button>
@@ -1834,7 +1834,7 @@ export default function ManmadRegionalMap({ onOpenStationSchematic }) {
             <div className="text-[11px] text-slate-300">
               <span className="text-slate-500 font-bold">Status:</span> {selectedTrain.status}
             </div>
-            <div className="text-[11px] text-cyan-400 mt-0.5">
+            <div className="text-[11px] text-sky-400 mt-0.5">
               <span className="text-slate-500 font-bold">Target:</span> {selectedTrain.nextStop}
             </div>
           </div>
@@ -1842,14 +1842,14 @@ export default function ManmadRegionalMap({ onOpenStationSchematic }) {
 
         {/* Selected Platform Details Card Overlay */}
         {selectedPlatform && (
-          <div className="absolute bottom-3 left-3 right-3 md:right-auto md:w-96 z-[1000] bg-slate-950/95 backdrop-blur-md p-3.5 rounded-xl border border-cyan-500/40 shadow-2xl font-mono text-xs text-white">
+          <div className="absolute bottom-3 left-3 right-3 md:right-auto md:w-96 z-[1000] bg-[#0a0e17]/95 backdrop-blur-md p-3.5 rounded-xl border border-sky-500/30 shadow-2xl font-mono text-xs text-white">
             <div className="flex items-center justify-between mb-1.5">
-              <span className="font-extrabold text-sm text-cyan-300 flex items-center gap-1.5">
+              <span className="font-extrabold text-sm text-sky-300 flex items-center gap-1.5">
                 🚉 Manmad Junction {selectedPlatform.name}
               </span>
               <button
                 onClick={() => setSelectedPlatform(null)}
-                className="text-slate-400 hover:text-white text-xs px-1.5 py-0.5 rounded bg-slate-800"
+                className="text-slate-400 hover:text-white text-xs px-1.5 py-0.5 rounded bg-slate-900 border border-slate-800 cursor-pointer"
               >
                 ✕ Close
               </button>
@@ -1858,7 +1858,7 @@ export default function ManmadRegionalMap({ onOpenStationSchematic }) {
             <div className="grid grid-cols-2 gap-2 text-[11px] mb-2">
               <div className="p-1.5 rounded bg-slate-900 border border-slate-800">
                 <span className="text-slate-500 block text-[9px]">Length (CSL)</span>
-                <span className="font-bold text-cyan-400">{selectedPlatform.lengthMeters} meters</span>
+                <span className="font-bold text-sky-400">{selectedPlatform.lengthMeters} meters</span>
               </div>
               <div className="p-1.5 rounded bg-slate-900 border border-slate-800">
                 <span className="text-slate-500 block text-[9px]">Coach Capacity</span>
@@ -2166,12 +2166,12 @@ export default function ManmadRegionalMap({ onOpenStationSchematic }) {
       {/* ============================================================ */}
       {/* COMPREHENSIVE OPERATIONAL ANALYSIS & TRAIN MOVEMENTS BOARD */}
       {/* ============================================================ */}
-      <div className="mt-4 p-4 rounded-xl bg-slate-950/90 border border-slate-800 shadow-2xl">
+      <div className="mt-4 p-5 rounded-xl pro-card shadow-2xl">
         {/* Section Header */}
         <div className="flex flex-wrap items-center justify-between gap-3 pb-3 border-b border-slate-800">
           <div>
             <div className="flex items-center gap-2">
-              <span className="p-1.5 rounded-lg bg-cyan-500/20 text-cyan-400 border border-cyan-500/40">
+              <span className="p-1.5 rounded-lg bg-sky-500/10 text-sky-400 border border-sky-500/25">
                 ⚡
               </span>
               <h3 className="text-sm md:text-base font-bold text-white tracking-wide">
@@ -2184,13 +2184,13 @@ export default function ManmadRegionalMap({ onOpenStationSchematic }) {
           </div>
 
           {/* Tab Navigation */}
-          <div className="flex items-center gap-1.5 bg-slate-900 p-1 rounded-lg border border-slate-800 text-xs font-mono">
+          <div className="flex items-center gap-1.5 bg-slate-950 p-1 rounded-lg border border-slate-800 text-xs font-mono">
             <button
               onClick={() => setActiveExplainTab('overview')}
               className={`px-3 py-1.5 rounded-md font-semibold transition cursor-pointer ${
                 activeExplainTab === 'overview'
-                  ? 'bg-cyan-600 text-white shadow-sm'
-                  : 'text-slate-400 hover:text-white hover:bg-slate-800'
+                  ? 'bg-sky-600 text-white shadow-sm'
+                  : 'text-slate-400 hover:text-white hover:bg-slate-900'
               }`}
             >
               🚆 {t('map.tabOverview')}
@@ -2200,7 +2200,7 @@ export default function ManmadRegionalMap({ onOpenStationSchematic }) {
               className={`px-3 py-1.5 rounded-md font-semibold transition cursor-pointer ${
                 activeExplainTab === 'interlocking'
                   ? 'bg-amber-600 text-white shadow-sm'
-                  : 'text-slate-400 hover:text-white hover:bg-slate-800'
+                  : 'text-slate-400 hover:text-white hover:bg-slate-900'
               }`}
             >
               ⚡ {t('map.tabInterlocking')}
@@ -2210,7 +2210,7 @@ export default function ManmadRegionalMap({ onOpenStationSchematic }) {
               className={`px-3 py-1.5 rounded-md font-semibold transition cursor-pointer ${
                 activeExplainTab === 'platforms'
                   ? 'bg-emerald-600 text-white shadow-sm'
-                  : 'text-slate-400 hover:text-white hover:bg-slate-800'
+                  : 'text-slate-400 hover:text-white hover:bg-slate-900'
               }`}
             >
               🚉 {t('map.tabPlatforms')}
@@ -2233,7 +2233,7 @@ export default function ManmadRegionalMap({ onOpenStationSchematic }) {
                 {movementExplanations.filter(m => m.type === 'standing').map(train => (
                   <div
                     key={train.id}
-                    className="p-3 rounded-lg bg-slate-900/80 border border-slate-800 hover:border-slate-700 transition flex flex-col justify-between"
+                    className="p-3.5 rounded-lg bg-[#0b0f19] border border-slate-800 hover:border-slate-700 transition flex flex-col justify-between"
                   >
                     <div>
                       <div className="flex items-start justify-between gap-2">

@@ -6,28 +6,27 @@ export default function LanguageSwitcher({ className = '' }) {
   const { language, setLanguage } = useLanguage();
 
   return (
-    <div className={`flex items-center gap-1.5 bg-slate-950/90 border border-slate-800 p-1 rounded-lg font-mono text-xs shadow-inner ${className}`}>
-      <Languages className="w-3.5 h-3.5 text-cyan-400 ml-1" />
-      <div className="flex items-center">
+    <div className={`flex items-center gap-1.5 bg-slate-900/90 border border-slate-800 p-0.5 rounded-lg font-mono text-xs shadow-sm ${className}`}>
+      <Languages className="w-3.5 h-3.5 text-sky-400 ml-1.5" />
+      <div className="flex items-center p-0.5 bg-slate-950/80 rounded border border-slate-800/80">
         <button
           type="button"
           onClick={() => setLanguage('en')}
-          className={`px-2 py-1 rounded transition-all font-semibold cursor-pointer ${
+          className={`px-2 py-0.5 rounded text-[11px] transition font-medium cursor-pointer ${
             language === 'en'
-              ? 'bg-cyan-600 text-white shadow-md shadow-cyan-950 font-bold'
+              ? 'bg-sky-600 text-white font-bold shadow-sm'
               : 'text-slate-400 hover:text-slate-200'
           }`}
           title="Switch to English"
         >
           English
         </button>
-        <span className="text-slate-600 px-0.5 select-none">|</span>
         <button
           type="button"
           onClick={() => setLanguage('mr')}
-          className={`px-2 py-1 rounded transition-all font-semibold cursor-pointer ${
+          className={`px-2 py-0.5 rounded text-[11px] transition font-medium cursor-pointer ${
             language === 'mr'
-              ? 'bg-cyan-600 text-white shadow-md shadow-cyan-950 font-bold'
+              ? 'bg-sky-600 text-white font-bold shadow-sm'
               : 'text-slate-400 hover:text-slate-200'
           }`}
           title="मराठी भाषेवर स्विच करा"
